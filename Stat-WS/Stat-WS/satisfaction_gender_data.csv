@@ -1,0 +1,401 @@
+customer_id,gender,satisfaction
+1,Male,Satisfied
+2,Male,Not Satisfied
+3,Male,Not Satisfied
+4,Male,Satisfied
+5,Male,Satisfied
+6,Male,Satisfied
+7,Male,Satisfied
+8,Male,Not Satisfied
+9,Male,Not Satisfied
+10,Male,Not Satisfied
+11,Male,Satisfied
+12,Male,Not Satisfied
+13,Male,Not Satisfied
+14,Male,Satisfied
+15,Male,Satisfied
+16,Male,Satisfied
+17,Male,Satisfied
+18,Male,Satisfied
+19,Male,Satisfied
+20,Male,Satisfied
+21,Male,Not Satisfied
+22,Male,Satisfied
+23,Male,Satisfied
+24,Male,Satisfied
+25,Male,Satisfied
+26,Male,Not Satisfied
+27,Male,Satisfied
+28,Male,Satisfied
+29,Male,Satisfied
+30,Male,Satisfied
+31,Male,Not Satisfied
+32,Male,Satisfied
+33,Male,Satisfied
+34,Male,Not Satisfied
+35,Male,Not Satisfied
+36,Male,Not Satisfied
+37,Male,Satisfied
+38,Male,Satisfied
+39,Male,Not Satisfied
+40,Male,Satisfied
+41,Male,Satisfied
+42,Male,Satisfied
+43,Male,Satisfied
+44,Male,Not Satisfied
+45,Male,Satisfied
+46,Male,Not Satisfied
+47,Male,Satisfied
+48,Male,Satisfied
+49,Male,Satisfied
+50,Male,Satisfied
+51,Male,Not Satisfied
+52,Male,Not Satisfied
+53,Male,Not Satisfied
+54,Male,Not Satisfied
+55,Male,Satisfied
+56,Male,Not Satisfied
+57,Male,Satisfied
+58,Male,Satisfied
+59,Male,Satisfied
+60,Male,Satisfied
+61,Male,Satisfied
+62,Male,Satisfied
+63,Male,Not Satisfied
+64,Male,Satisfied
+65,Male,Satisfied
+66,Male,Satisfied
+67,Male,Satisfied
+68,Male,Not Satisfied
+69,Male,Satisfied
+70,Male,Not Satisfied
+71,Male,Not Satisfied
+72,Male,Satisfied
+73,Male,Satisfied
+74,Male,Not Satisfied
+75,Male,Not Satisfied
+76,Male,Not Satisfied
+77,Male,Not Satisfied
+78,Male,Satisfied
+79,Male,Satisfied
+80,Male,Satisfied
+81,Male,Not Satisfied
+82,Male,Not Satisfied
+83,Male,Satisfied
+84,Male,Satisfied
+85,Male,Satisfied
+86,Male,Satisfied
+87,Male,Not Satisfied
+88,Male,Not Satisfied
+89,Male,Not Satisfied
+90,Male,Satisfied
+91,Male,Satisfied
+92,Male,Not Satisfied
+93,Male,Not Satisfied
+94,Male,Satisfied
+95,Male,Not Satisfied
+96,Male,Satisfied
+97,Male,Satisfied
+98,Male,Satisfied
+99,Male,Satisfied
+100,Male,Satisfied
+101,Male,Satisfied
+102,Male,Not Satisfied
+103,Male,Satisfied
+104,Male,Satisfied
+105,Male,Not Satisfied
+106,Male,Satisfied
+107,Male,Satisfied
+108,Male,Not Satisfied
+109,Male,Satisfied
+110,Male,Satisfied
+111,Male,Satisfied
+112,Male,Satisfied
+113,Male,Not Satisfied
+114,Male,Not Satisfied
+115,Male,Not Satisfied
+116,Male,Not Satisfied
+117,Male,Not Satisfied
+118,Male,Satisfied
+119,Male,Not Satisfied
+120,Male,Satisfied
+121,Male,Not Satisfied
+122,Male,Not Satisfied
+123,Male,Satisfied
+124,Male,Satisfied
+125,Male,Satisfied
+126,Male,Satisfied
+127,Male,Not Satisfied
+128,Male,Not Satisfied
+129,Male,Satisfied
+130,Male,Satisfied
+131,Male,Satisfied
+132,Male,Satisfied
+133,Male,Satisfied
+134,Male,Satisfied
+135,Male,Not Satisfied
+136,Male,Satisfied
+137,Male,Satisfied
+138,Male,Not Satisfied
+139,Male,Satisfied
+140,Male,Not Satisfied
+141,Male,Not Satisfied
+142,Male,Satisfied
+143,Male,Satisfied
+144,Male,Satisfied
+145,Male,Satisfied
+146,Male,Satisfied
+147,Male,Not Satisfied
+148,Male,Satisfied
+149,Male,Satisfied
+150,Male,Satisfied
+151,Male,Not Satisfied
+152,Male,Satisfied
+153,Male,Satisfied
+154,Male,Satisfied
+155,Male,Not Satisfied
+156,Male,Satisfied
+157,Male,Not Satisfied
+158,Male,Not Satisfied
+159,Male,Satisfied
+160,Male,Not Satisfied
+161,Male,Satisfied
+162,Male,Not Satisfied
+163,Male,Not Satisfied
+164,Male,Satisfied
+165,Male,Satisfied
+166,Male,Not Satisfied
+167,Male,Satisfied
+168,Male,Satisfied
+169,Male,Satisfied
+170,Male,Satisfied
+171,Male,Not Satisfied
+172,Male,Satisfied
+173,Male,Satisfied
+174,Male,Satisfied
+175,Male,Not Satisfied
+176,Male,Satisfied
+177,Male,Not Satisfied
+178,Male,Satisfied
+179,Male,Not Satisfied
+180,Male,Satisfied
+181,Male,Satisfied
+182,Male,Satisfied
+183,Male,Not Satisfied
+184,Male,Not Satisfied
+185,Male,Satisfied
+186,Male,Not Satisfied
+187,Male,Not Satisfied
+188,Male,Satisfied
+189,Male,Satisfied
+190,Male,Satisfied
+191,Male,Satisfied
+192,Male,Not Satisfied
+193,Male,Not Satisfied
+194,Male,Not Satisfied
+195,Male,Satisfied
+196,Male,Satisfied
+197,Male,Not Satisfied
+198,Male,Not Satisfied
+199,Male,Not Satisfied
+200,Male,Not Satisfied
+201,Female,Not Satisfied
+202,Female,Satisfied
+203,Female,Satisfied
+204,Female,Not Satisfied
+205,Female,Not Satisfied
+206,Female,Satisfied
+207,Female,Satisfied
+208,Female,Not Satisfied
+209,Female,Satisfied
+210,Female,Satisfied
+211,Female,Not Satisfied
+212,Female,Not Satisfied
+213,Female,Not Satisfied
+214,Female,Satisfied
+215,Female,Not Satisfied
+216,Female,Satisfied
+217,Female,Satisfied
+218,Female,Not Satisfied
+219,Female,Not Satisfied
+220,Female,Not Satisfied
+221,Female,Not Satisfied
+222,Female,Not Satisfied
+223,Female,Satisfied
+224,Female,Satisfied
+225,Female,Satisfied
+226,Female,Satisfied
+227,Female,Not Satisfied
+228,Female,Satisfied
+229,Female,Not Satisfied
+230,Female,Not Satisfied
+231,Female,Not Satisfied
+232,Female,Not Satisfied
+233,Female,Not Satisfied
+234,Female,Satisfied
+235,Female,Satisfied
+236,Female,Not Satisfied
+237,Female,Satisfied
+238,Female,Satisfied
+239,Female,Not Satisfied
+240,Female,Satisfied
+241,Female,Not Satisfied
+242,Female,Not Satisfied
+243,Female,Not Satisfied
+244,Female,Satisfied
+245,Female,Satisfied
+246,Female,Not Satisfied
+247,Female,Satisfied
+248,Female,Not Satisfied
+249,Female,Not Satisfied
+250,Female,Not Satisfied
+251,Female,Satisfied
+252,Female,Satisfied
+253,Female,Not Satisfied
+254,Female,Satisfied
+255,Female,Satisfied
+256,Female,Not Satisfied
+257,Female,Not Satisfied
+258,Female,Not Satisfied
+259,Female,Not Satisfied
+260,Female,Satisfied
+261,Female,Not Satisfied
+262,Female,Not Satisfied
+263,Female,Satisfied
+264,Female,Not Satisfied
+265,Female,Not Satisfied
+266,Female,Not Satisfied
+267,Female,Not Satisfied
+268,Female,Not Satisfied
+269,Female,Satisfied
+270,Female,Satisfied
+271,Female,Not Satisfied
+272,Female,Not Satisfied
+273,Female,Not Satisfied
+274,Female,Not Satisfied
+275,Female,Not Satisfied
+276,Female,Not Satisfied
+277,Female,Not Satisfied
+278,Female,Not Satisfied
+279,Female,Not Satisfied
+280,Female,Not Satisfied
+281,Female,Not Satisfied
+282,Female,Satisfied
+283,Female,Satisfied
+284,Female,Satisfied
+285,Female,Not Satisfied
+286,Female,Satisfied
+287,Female,Satisfied
+288,Female,Not Satisfied
+289,Female,Satisfied
+290,Female,Not Satisfied
+291,Female,Satisfied
+292,Female,Satisfied
+293,Female,Not Satisfied
+294,Female,Satisfied
+295,Female,Satisfied
+296,Female,Not Satisfied
+297,Female,Not Satisfied
+298,Female,Satisfied
+299,Female,Not Satisfied
+300,Female,Satisfied
+301,Female,Satisfied
+302,Female,Not Satisfied
+303,Female,Not Satisfied
+304,Female,Not Satisfied
+305,Female,Not Satisfied
+306,Female,Not Satisfied
+307,Female,Not Satisfied
+308,Female,Satisfied
+309,Female,Not Satisfied
+310,Female,Satisfied
+311,Female,Satisfied
+312,Female,Satisfied
+313,Female,Satisfied
+314,Female,Not Satisfied
+315,Female,Not Satisfied
+316,Female,Not Satisfied
+317,Female,Satisfied
+318,Female,Satisfied
+319,Female,Satisfied
+320,Female,Satisfied
+321,Female,Not Satisfied
+322,Female,Not Satisfied
+323,Female,Not Satisfied
+324,Female,Satisfied
+325,Female,Not Satisfied
+326,Female,Not Satisfied
+327,Female,Not Satisfied
+328,Female,Not Satisfied
+329,Female,Satisfied
+330,Female,Satisfied
+331,Female,Satisfied
+332,Female,Not Satisfied
+333,Female,Satisfied
+334,Female,Satisfied
+335,Female,Satisfied
+336,Female,Satisfied
+337,Female,Not Satisfied
+338,Female,Not Satisfied
+339,Female,Satisfied
+340,Female,Satisfied
+341,Female,Satisfied
+342,Female,Satisfied
+343,Female,Satisfied
+344,Female,Satisfied
+345,Female,Satisfied
+346,Female,Not Satisfied
+347,Female,Not Satisfied
+348,Female,Satisfied
+349,Female,Satisfied
+350,Female,Not Satisfied
+351,Female,Not Satisfied
+352,Female,Not Satisfied
+353,Female,Not Satisfied
+354,Female,Satisfied
+355,Female,Satisfied
+356,Female,Not Satisfied
+357,Female,Satisfied
+358,Female,Not Satisfied
+359,Female,Not Satisfied
+360,Female,Not Satisfied
+361,Female,Satisfied
+362,Female,Not Satisfied
+363,Female,Satisfied
+364,Female,Not Satisfied
+365,Female,Not Satisfied
+366,Female,Satisfied
+367,Female,Not Satisfied
+368,Female,Not Satisfied
+369,Female,Satisfied
+370,Female,Satisfied
+371,Female,Satisfied
+372,Female,Satisfied
+373,Female,Satisfied
+374,Female,Not Satisfied
+375,Female,Satisfied
+376,Female,Satisfied
+377,Female,Not Satisfied
+378,Female,Satisfied
+379,Female,Not Satisfied
+380,Female,Satisfied
+381,Female,Satisfied
+382,Female,Not Satisfied
+383,Female,Not Satisfied
+384,Female,Not Satisfied
+385,Female,Not Satisfied
+386,Female,Not Satisfied
+387,Female,Satisfied
+388,Female,Satisfied
+389,Female,Not Satisfied
+390,Female,Not Satisfied
+391,Female,Not Satisfied
+392,Female,Satisfied
+393,Female,Satisfied
+394,Female,Not Satisfied
+395,Female,Satisfied
+396,Female,Not Satisfied
+397,Female,Not Satisfied
+398,Female,Satisfied
+399,Female,Not Satisfied
+400,Female,Not Satisfied

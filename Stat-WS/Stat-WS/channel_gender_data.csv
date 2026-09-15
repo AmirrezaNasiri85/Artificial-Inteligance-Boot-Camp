@@ -1,0 +1,501 @@
+customer_id,gender,acquisition_channel
+1,Male,Organic Search
+2,Male,Direct
+3,Male,Email Marketing
+4,Male,Social Media
+5,Male,Organic Search
+6,Male,Organic Search
+7,Male,Organic Search
+8,Male,Referral
+9,Male,Email Marketing
+10,Male,Email Marketing
+11,Male,Organic Search
+12,Male,Direct
+13,Male,Referral
+14,Male,Organic Search
+15,Male,Organic Search
+16,Male,Organic Search
+17,Male,Organic Search
+18,Male,Social Media
+19,Male,Organic Search
+20,Male,Organic Search
+21,Male,Email Marketing
+22,Male,Organic Search
+23,Male,Organic Search
+24,Male,Organic Search
+25,Male,Social Media
+26,Male,Referral
+27,Male,Organic Search
+28,Male,Social Media
+29,Male,Social Media
+30,Male,Organic Search
+31,Male,Email Marketing
+32,Male,Organic Search
+33,Male,Organic Search
+34,Male,Direct
+35,Male,Direct
+36,Male,Referral
+37,Male,Organic Search
+38,Male,Organic Search
+39,Male,Email Marketing
+40,Male,Organic Search
+41,Male,Organic Search
+42,Male,Social Media
+43,Male,Organic Search
+44,Male,Direct
+45,Male,Organic Search
+46,Male,Email Marketing
+47,Male,Organic Search
+48,Male,Social Media
+49,Male,Social Media
+50,Male,Organic Search
+51,Male,Direct
+52,Male,Referral
+53,Male,Direct
+54,Male,Referral
+55,Male,Social Media
+56,Male,Direct
+57,Male,Organic Search
+58,Male,Organic Search
+59,Male,Organic Search
+60,Male,Organic Search
+61,Male,Organic Search
+62,Male,Organic Search
+63,Male,Referral
+64,Male,Organic Search
+65,Male,Organic Search
+66,Male,Social Media
+67,Male,Organic Search
+68,Male,Referral
+69,Male,Organic Search
+70,Male,Direct
+71,Male,Referral
+72,Male,Organic Search
+73,Male,Organic Search
+74,Male,Referral
+75,Male,Email Marketing
+76,Male,Email Marketing
+77,Male,Referral
+78,Male,Organic Search
+79,Male,Organic Search
+80,Male,Organic Search
+81,Male,Referral
+82,Male,Email Marketing
+83,Male,Organic Search
+84,Male,Organic Search
+85,Male,Organic Search
+86,Male,Organic Search
+87,Male,Email Marketing
+88,Male,Email Marketing
+89,Male,Referral
+90,Male,Social Media
+91,Male,Organic Search
+92,Male,Email Marketing
+93,Male,Referral
+94,Male,Social Media
+95,Male,Referral
+96,Male,Social Media
+97,Male,Social Media
+98,Male,Organic Search
+99,Male,Organic Search
+100,Male,Organic Search
+101,Male,Organic Search
+102,Male,Email Marketing
+103,Male,Organic Search
+104,Male,Social Media
+105,Male,Direct
+106,Male,Organic Search
+107,Male,Organic Search
+108,Male,Referral
+109,Male,Organic Search
+110,Male,Organic Search
+111,Male,Organic Search
+112,Male,Organic Search
+113,Male,Direct
+114,Male,Referral
+115,Male,Email Marketing
+116,Male,Referral
+117,Male,Referral
+118,Male,Organic Search
+119,Male,Referral
+120,Male,Social Media
+121,Male,Referral
+122,Male,Referral
+123,Male,Organic Search
+124,Male,Organic Search
+125,Male,Organic Search
+126,Male,Organic Search
+127,Male,Referral
+128,Male,Referral
+129,Male,Organic Search
+130,Male,Social Media
+131,Male,Organic Search
+132,Male,Organic Search
+133,Male,Organic Search
+134,Male,Organic Search
+135,Male,Direct
+136,Male,Organic Search
+137,Male,Social Media
+138,Male,Email Marketing
+139,Male,Organic Search
+140,Male,Direct
+141,Male,Direct
+142,Male,Organic Search
+143,Male,Social Media
+144,Male,Organic Search
+145,Male,Organic Search
+146,Male,Organic Search
+147,Male,Email Marketing
+148,Male,Social Media
+149,Male,Organic Search
+150,Male,Organic Search
+151,Male,Direct
+152,Male,Organic Search
+153,Male,Organic Search
+154,Male,Social Media
+155,Male,Direct
+156,Male,Organic Search
+157,Male,Email Marketing
+158,Male,Referral
+159,Male,Organic Search
+160,Male,Email Marketing
+161,Male,Organic Search
+162,Male,Email Marketing
+163,Male,Email Marketing
+164,Male,Social Media
+165,Male,Organic Search
+166,Male,Referral
+167,Male,Organic Search
+168,Male,Organic Search
+169,Male,Organic Search
+170,Male,Social Media
+171,Male,Email Marketing
+172,Male,Organic Search
+173,Male,Social Media
+174,Male,Organic Search
+175,Male,Email Marketing
+176,Male,Organic Search
+177,Male,Email Marketing
+178,Male,Organic Search
+179,Male,Direct
+180,Male,Organic Search
+181,Male,Organic Search
+182,Male,Organic Search
+183,Male,Direct
+184,Male,Referral
+185,Male,Organic Search
+186,Male,Email Marketing
+187,Male,Referral
+188,Male,Social Media
+189,Male,Social Media
+190,Male,Organic Search
+191,Male,Organic Search
+192,Male,Referral
+193,Male,Direct
+194,Male,Email Marketing
+195,Male,Organic Search
+196,Male,Organic Search
+197,Male,Email Marketing
+198,Male,Referral
+199,Male,Referral
+200,Male,Referral
+201,Male,Email Marketing
+202,Male,Organic Search
+203,Male,Organic Search
+204,Male,Referral
+205,Male,Email Marketing
+206,Male,Organic Search
+207,Male,Organic Search
+208,Male,Email Marketing
+209,Male,Organic Search
+210,Male,Organic Search
+211,Male,Social Media
+212,Male,Email Marketing
+213,Male,Email Marketing
+214,Male,Organic Search
+215,Male,Email Marketing
+216,Male,Organic Search
+217,Male,Organic Search
+218,Male,Email Marketing
+219,Male,Email Marketing
+220,Male,Referral
+221,Male,Email Marketing
+222,Male,Social Media
+223,Male,Organic Search
+224,Male,Organic Search
+225,Male,Organic Search
+226,Male,Organic Search
+227,Male,Direct
+228,Male,Organic Search
+229,Male,Referral
+230,Male,Email Marketing
+231,Male,Referral
+232,Male,Social Media
+233,Male,Social Media
+234,Male,Social Media
+235,Male,Organic Search
+236,Male,Email Marketing
+237,Male,Organic Search
+238,Male,Organic Search
+239,Male,Email Marketing
+240,Male,Organic Search
+241,Male,Direct
+242,Male,Direct
+243,Male,Direct
+244,Male,Organic Search
+245,Male,Organic Search
+246,Male,Direct
+247,Male,Organic Search
+248,Male,Direct
+249,Male,Direct
+250,Male,Referral
+251,Female,Social Media
+252,Female,Social Media
+253,Female,Referral
+254,Female,Social Media
+255,Female,Organic Search
+256,Female,Social Media
+257,Female,Referral
+258,Female,Email Marketing
+259,Female,Social Media
+260,Female,Organic Search
+261,Female,Email Marketing
+262,Female,Direct
+263,Female,Organic Search
+264,Female,Social Media
+265,Female,Referral
+266,Female,Email Marketing
+267,Female,Email Marketing
+268,Female,Email Marketing
+269,Female,Social Media
+270,Female,Social Media
+271,Female,Email Marketing
+272,Female,Email Marketing
+273,Female,Referral
+274,Female,Referral
+275,Female,Social Media
+276,Female,Social Media
+277,Female,Email Marketing
+278,Female,Email Marketing
+279,Female,Email Marketing
+280,Female,Email Marketing
+281,Female,Referral
+282,Female,Social Media
+283,Female,Social Media
+284,Female,Organic Search
+285,Female,Social Media
+286,Female,Organic Search
+287,Female,Social Media
+288,Female,Social Media
+289,Female,Social Media
+290,Female,Social Media
+291,Female,Organic Search
+292,Female,Organic Search
+293,Female,Email Marketing
+294,Female,Social Media
+295,Female,Organic Search
+296,Female,Social Media
+297,Female,Email Marketing
+298,Female,Organic Search
+299,Female,Email Marketing
+300,Female,Organic Search
+301,Female,Organic Search
+302,Female,Social Media
+303,Female,Social Media
+304,Female,Email Marketing
+305,Female,Email Marketing
+306,Female,Direct
+307,Female,Social Media
+308,Female,Social Media
+309,Female,Email Marketing
+310,Female,Social Media
+311,Female,Social Media
+312,Female,Organic Search
+313,Female,Organic Search
+314,Female,Direct
+315,Female,Email Marketing
+316,Female,Email Marketing
+317,Female,Social Media
+318,Female,Organic Search
+319,Female,Organic Search
+320,Female,Social Media
+321,Female,Social Media
+322,Female,Email Marketing
+323,Female,Email Marketing
+324,Female,Social Media
+325,Female,Direct
+326,Female,Email Marketing
+327,Female,Social Media
+328,Female,Email Marketing
+329,Female,Social Media
+330,Female,Organic Search
+331,Female,Social Media
+332,Female,Email Marketing
+333,Female,Organic Search
+334,Female,Organic Search
+335,Female,Organic Search
+336,Female,Organic Search
+337,Female,Referral
+338,Female,Email Marketing
+339,Female,Social Media
+340,Female,Organic Search
+341,Female,Social Media
+342,Female,Social Media
+343,Female,Organic Search
+344,Female,Social Media
+345,Female,Social Media
+346,Female,Email Marketing
+347,Female,Email Marketing
+348,Female,Organic Search
+349,Female,Social Media
+350,Female,Email Marketing
+351,Female,Social Media
+352,Female,Referral
+353,Female,Email Marketing
+354,Female,Organic Search
+355,Female,Organic Search
+356,Female,Email Marketing
+357,Female,Organic Search
+358,Female,Social Media
+359,Female,Referral
+360,Female,Social Media
+361,Female,Social Media
+362,Female,Email Marketing
+363,Female,Social Media
+364,Female,Social Media
+365,Female,Referral
+366,Female,Social Media
+367,Female,Direct
+368,Female,Referral
+369,Female,Organic Search
+370,Female,Organic Search
+371,Female,Organic Search
+372,Female,Organic Search
+373,Female,Organic Search
+374,Female,Email Marketing
+375,Female,Organic Search
+376,Female,Social Media
+377,Female,Email Marketing
+378,Female,Organic Search
+379,Female,Email Marketing
+380,Female,Social Media
+381,Female,Organic Search
+382,Female,Email Marketing
+383,Female,Email Marketing
+384,Female,Referral
+385,Female,Email Marketing
+386,Female,Email Marketing
+387,Female,Social Media
+388,Female,Organic Search
+389,Female,Email Marketing
+390,Female,Email Marketing
+391,Female,Direct
+392,Female,Social Media
+393,Female,Social Media
+394,Female,Email Marketing
+395,Female,Social Media
+396,Female,Referral
+397,Female,Referral
+398,Female,Social Media
+399,Female,Email Marketing
+400,Female,Email Marketing
+401,Female,Organic Search
+402,Female,Referral
+403,Female,Social Media
+404,Female,Email Marketing
+405,Female,Social Media
+406,Female,Referral
+407,Female,Social Media
+408,Female,Organic Search
+409,Female,Referral
+410,Female,Organic Search
+411,Female,Social Media
+412,Female,Direct
+413,Female,Direct
+414,Female,Social Media
+415,Female,Email Marketing
+416,Female,Social Media
+417,Female,Social Media
+418,Female,Social Media
+419,Female,Email Marketing
+420,Female,Email Marketing
+421,Female,Email Marketing
+422,Female,Email Marketing
+423,Female,Organic Search
+424,Female,Social Media
+425,Female,Organic Search
+426,Female,Social Media
+427,Female,Social Media
+428,Female,Referral
+429,Female,Social Media
+430,Female,Organic Search
+431,Female,Organic Search
+432,Female,Email Marketing
+433,Female,Email Marketing
+434,Female,Organic Search
+435,Female,Organic Search
+436,Female,Email Marketing
+437,Female,Organic Search
+438,Female,Email Marketing
+439,Female,Email Marketing
+440,Female,Organic Search
+441,Female,Organic Search
+442,Female,Direct
+443,Female,Social Media
+444,Female,Social Media
+445,Female,Email Marketing
+446,Female,Referral
+447,Female,Direct
+448,Female,Email Marketing
+449,Female,Social Media
+450,Female,Organic Search
+451,Female,Email Marketing
+452,Female,Social Media
+453,Female,Social Media
+454,Female,Referral
+455,Female,Organic Search
+456,Female,Social Media
+457,Female,Organic Search
+458,Female,Social Media
+459,Female,Organic Search
+460,Female,Organic Search
+461,Female,Organic Search
+462,Female,Email Marketing
+463,Female,Email Marketing
+464,Female,Social Media
+465,Female,Direct
+466,Female,Social Media
+467,Female,Social Media
+468,Female,Referral
+469,Female,Organic Search
+470,Female,Direct
+471,Female,Organic Search
+472,Female,Direct
+473,Female,Organic Search
+474,Female,Referral
+475,Female,Social Media
+476,Female,Direct
+477,Female,Organic Search
+478,Female,Social Media
+479,Female,Direct
+480,Female,Social Media
+481,Female,Email Marketing
+482,Female,Email Marketing
+483,Female,Social Media
+484,Female,Email Marketing
+485,Female,Social Media
+486,Female,Referral
+487,Female,Organic Search
+488,Female,Social Media
+489,Female,Direct
+490,Female,Referral
+491,Female,Social Media
+492,Female,Email Marketing
+493,Female,Social Media
+494,Female,Organic Search
+495,Female,Social Media
+496,Female,Social Media
+497,Female,Social Media
+498,Female,Organic Search
+499,Female,Direct
+500,Female,Direct
