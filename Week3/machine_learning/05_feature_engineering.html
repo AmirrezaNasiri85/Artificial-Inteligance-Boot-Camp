@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feature Engineering — Lecture 05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0e14;
+    --surface:#11161f;
+    --surface-2:#171d29;
+    --surface-3:#1d2433;
+    --border:#2a3341;
+    --text:#e9eef4;
+    --text-dim:#8b96a7;
+    --text-faint:#5b6577;
+    --amber:#ffb454;
+    --teal:#5ec8c0;
+    --coral:#ff6b6b;
+    --violet:#9d8cff;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --font-body:'Inter', sans-serif;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{ height:100%; overflow:hidden; }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- top notebook chrome ---------- */
+  .notebook-bar{
+    position:fixed; top:0; left:0; right:0; height:44px;
+    background:var(--surface-2);
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:center;
+    padding:0 18px; gap:22px;
+    z-index:50;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-dim);
+  }
+  .notebook-bar .filename{
+    color:var(--text);
+    font-weight:500;
+  }
+  .notebook-bar .menu{ display:flex; gap:16px; }
+  .notebook-bar .menu span{ opacity:.55; }
+  .notebook-bar .spacer{ flex:1; }
+  .kernel-status{ display:flex; align-items:center; gap:8px; }
+  .kernel-dot{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--teal);
+    box-shadow:0 0 8px var(--teal);
+    transition:background .25s ease, box-shadow .25s ease;
+  }
+  .kernel-dot.busy{ background:var(--amber); box-shadow:0 0 8px var(--amber); animation:pulse 0.6s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+  .cell-counter{ min-width:96px; text-align:right; }
+
+  @media (max-width:720px){
+    .notebook-bar .menu{ display:none; }
+  }
+
+  /* ---------- slide stage ---------- */
+  .stage{
+    position:absolute; top:44px; bottom:56px; left:0; right:0;
+    overflow:hidden;
+  }
+
+  .slide{
+    position:absolute; inset:0;
+    display:flex;
+    opacity:0; transform:translateY(14px);
+    pointer-events:none;
+    transition:opacity .45s ease, transform .45s ease;
+    overflow-y:auto;
+  }
+  .slide.active{
+    opacity:1; transform:translateY(0);
+    pointer-events:auto;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .slide{ transition:none; }
+  }
+
+  .cell{
+    display:flex;
+    width:100%;
+    max-width:1180px;
+    margin:auto;
+    padding:38px 32px;
+    gap:22px;
+    align-items:flex-start;
+  }
+
+  .prompt{
+    font-family:var(--font-mono);
+    color:var(--amber);
+    font-size:14px;
+    white-space:nowrap;
+    padding-top:6px;
+    user-select:none;
+    opacity:.85;
+  }
+
+  .cell-body{ flex:1; min-width:0; }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:.06em;
+    color:var(--teal);
+    text-transform:uppercase;
+    margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:''; display:inline-block; width:18px; height:1px; background:var(--teal); opacity:.6;
+  }
+
+  h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(28px, 4.4vw, 52px);
+    line-height:1.08;
+    letter-spacing:-.01em;
+    margin-bottom:16px;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(20px, 2.6vw, 28px);
+    margin-bottom:14px;
+    color:var(--text);
+  }
+  h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:16px;
+    margin-bottom:8px;
+    color:var(--text);
+  }
+  p{
+    font-size:15.5px;
+    line-height:1.65;
+    color:var(--text-dim);
+    max-width:74ch;
+    margin-bottom:12px;
+  }
+  .lede{
+    font-size:18px;
+    line-height:1.6;
+    color:var(--text);
+    max-width:62ch;
+    margin-bottom:20px;
+  }
+  strong{ color:var(--text); font-weight:600; }
+  .accent-amber{ color:var(--amber); }
+  .accent-teal{ color:var(--teal); }
+  .accent-coral{ color:var(--coral); }
+  .accent-violet{ color:var(--violet); }
+
+  ul.clean{ list-style:none; }
+  ul.clean li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:10px;
+    font-size:15px;
+    line-height:1.6;
+    color:var(--text-dim);
+  }
+  ul.clean li::before{
+    content:'—';
+    position:absolute; left:0; color:var(--text-faint);
+  }
+  ul.clean li strong{ color:var(--text); }
+
+  code, .mono{ font-family:var(--font-mono); font-size:.92em; }
+  .code-chip{
+    display:inline-block;
+    background:var(--surface-3);
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:1px 7px;
+    font-family:var(--font-mono);
+    font-size:.85em;
+    color:var(--teal);
+  }
+
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:8px; }
+  .grid-3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:8px; }
+  @media (max-width:820px){
+    .grid-2, .grid-3{ grid-template-columns:1fr; }
+    .cell{ flex-direction:column; padding:22px 18px 30px; }
+    .prompt{ padding-top:0; }
+  }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px 20px;
+  }
+  .card.glow-amber{ border-color:rgba(255,180,84,.35); }
+  .card.glow-teal{ border-color:rgba(94,200,192,.35); }
+  .card.glow-violet{ border-color:rgba(157,140,255,.35); }
+  .card.glow-coral{ border-color:rgba(255,107,107,.35); }
+  .card p{ font-size:14px; margin-bottom:0; }
+  .card h3{ display:flex; align-items:center; gap:8px; }
+
+  .tag{
+    display:inline-block;
+    font-family:var(--font-mono);
+    font-size:11px;
+    padding:2px 8px;
+    border-radius:999px;
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    margin-bottom:10px;
+  }
+
+  .callout{
+    border-left:3px solid var(--amber);
+    background:var(--surface);
+    padding:14px 18px;
+    border-radius:0 8px 8px 0;
+    margin-top:10px;
+  }
+  .callout p{ margin-bottom:0; color:var(--text); font-size:14.5px; }
+
+  .quote{
+    font-family:var(--font-display);
+    font-size:clamp(22px, 3vw, 32px);
+    font-weight:600;
+    line-height:1.35;
+    color:var(--text);
+    margin:22px 0;
+    max-width:20ch;
+  }
+  .quote-attr{ font-family:var(--font-mono); font-size:13px; color:var(--text-faint); }
+
+  figure{ margin-top:18px; }
+  figcaption{
+    font-size:12.5px; color:var(--text-faint); margin-top:8px; font-family:var(--font-mono);
+  }
+
+  table.compare{ width:100%; border-collapse:collapse; margin-top:10px; }
+  table.compare th, table.compare td{
+    text-align:left; padding:9px 12px; font-size:14px; border-bottom:1px solid var(--border);
+  }
+  table.compare th{ color:var(--text-faint); font-family:var(--font-mono); font-weight:500; font-size:12px; text-transform:uppercase; letter-spacing:.04em; }
+  table.compare td{ color:var(--text-dim); }
+  table.compare td strong{ color:var(--text); }
+
+  /* ---------- bottom nav ---------- */
+  .navbar{
+    position:fixed; bottom:0; left:0; right:0; height:56px;
+    background:var(--surface-2);
+    border-top:1px solid var(--border);
+    display:flex; align-items:center;
+    padding:0 18px; gap:14px;
+    z-index:50;
+  }
+  .nav-btn{
+    font-family:var(--font-mono);
+    background:var(--surface-3);
+    border:1px solid var(--border);
+    color:var(--text);
+    width:34px; height:34px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:15px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .nav-btn:hover{ border-color:var(--teal); color:var(--teal); }
+  .nav-btn:focus-visible, .nav-btn:focus{ outline:2px solid var(--teal); outline-offset:2px; }
+  .nav-btn:disabled{ opacity:.3; cursor:default; }
+  .nav-btn:disabled:hover{ border-color:var(--border); color:var(--text); }
+
+  .progress-track{
+    flex:1; height:3px; background:var(--surface-3); border-radius:2px; position:relative; overflow:hidden;
+  }
+  .progress-fill{
+    position:absolute; left:0; top:0; bottom:0;
+    background:linear-gradient(90deg, var(--teal), var(--amber));
+    border-radius:2px;
+    transition:width .35s ease;
+  }
+  .nav-label{
+    font-family:var(--font-mono); font-size:12px; color:var(--text-faint); min-width:118px; text-align:right;
+  }
+  .nav-title{
+    font-family:var(--font-mono); font-size:12px; color:var(--text-faint);
+    display:none;
+  }
+  @media (min-width:900px){ .nav-title{ display:block; min-width:180px; } }
+
+  a.skip-link{ position:absolute; left:-9999px; }
+  a.skip-link:focus{ left:8px; top:8px; background:var(--surface-3); padding:6px 10px; border-radius:6px; z-index:100; }
+
+  ::selection{ background:rgba(94,200,192,.3); }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#slide-0">Skip to lecture content</a>
+
+<div class="notebook-bar">
+  <span class="filename">chalk_and_code.ipynb</span>
+  <div class="menu"><span>File</span><span>Edit</span><span>View</span><span>Cell</span><span>Kernel</span></div>
+  <div class="spacer"></div>
+  <div class="kernel-status">
+    <span class="kernel-dot" id="kernelDot"></span>
+    <span id="kernelText">Python 3 (ML Track) — idle</span>
+  </div>
+  <div class="cell-counter" id="cellCounter">Cell 1 / 21</div>
+</div>
+
+<div class="stage" id="stage">
+
+  <!-- 0 : TITLE -->
+  <section class="slide" id="slide-0">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;1&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Concepts Track · Lecture 05</div>
+        <h1>Feature Engineering</h1>
+        <p class="lede">Feature Selection asked which existing columns deserve to stay. Today asks
+        the question underneath that one: <strong>what if the most useful column isn't in your
+        dataset yet</strong>, and has to be built?</p>
+        <div class="grid-3" style="margin-top:28px;">
+          <div class="card glow-amber">
+            <h3><span class="tag">Building Blocks</span></h3>
+            <p>Missing values, transforms, encoding, dates, interactions -- the standard toolkit</p>
+          </div>
+          <div class="card glow-teal">
+            <h3><span class="tag">Judgment</span></h3>
+            <p>Which technique fits which situation, not just how to call each function</p>
+          </div>
+          <div class="card glow-violet">
+            <h3><span class="tag">The Trap</span></h3>
+            <p>Feature engineering has its own leakage risk -- sneakier than the ones you've seen so far</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 : RECAP / ROADMAP -->
+  <section class="slide" id="slide-1">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;2&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Recap</div>
+        <h1>Last Time, and Where This Sits</h1>
+        <p>Lecture 03 drew a clean line between Feature Selection (choosing among existing columns),
+        Feature Engineering (building new ones), and dimensionality reduction (blending columns
+        together). Today fills in the middle one -- and every technique from Lectures 03 and 04
+        still applies the moment a new column exists: it can be selected, and it must be
+        cross-validated, exactly like any other feature.</p>
+        <figure>
+          <svg viewBox="0 0 1080 200" width="100%" role="img" aria-label="Roadmap showing Feature Engineering as the current lecture">
+            <line x1="40" y1="110" x2="1040" y2="110" stroke="#2a3341" stroke-width="2"/>
+            <g font-family="IBM Plex Mono" font-size="11.5">
+              <g transform="translate(90,110)">
+                <circle r="9" fill="#0b0e14" stroke="#5ec8c0" stroke-width="2.5"/>
+                <path d="M-4,0 L-1,3.5 L4.5,-4" stroke="#5ec8c0" stroke-width="1.6" fill="none"/>
+                <text x="0" y="-22" fill="#5ec8c0" text-anchor="middle">Lecture 01–04</text>
+                <text x="0" y="28" fill="#5b6577" text-anchor="middle">ML through Cross-Validation</text>
+              </g>
+              <g transform="translate(430,110)">
+                <circle r="13" fill="#0b0e14" stroke="#ffb454" stroke-width="3">
+                  <animate attributeName="r" values="13;16;13" dur="1.8s" repeatCount="indefinite"/>
+                </circle>
+                <circle r="4" fill="#ffb454"/>
+                <text x="0" y="-30" fill="#ffb454" text-anchor="middle" font-weight="600">You Are Here</text>
+                <text x="0" y="34" fill="#e9eef4" text-anchor="middle">Feature Engineering</text>
+              </g>
+              <g transform="translate(750,110)">
+                <circle r="8" fill="#0b0e14" stroke="#5b6577" stroke-width="2"/>
+                <text x="0" y="-22" fill="#8b96a7" text-anchor="middle">Lecture 06</text>
+                <text x="0" y="28" fill="#5b6577" text-anchor="middle">Classification</text>
+              </g>
+              <g transform="translate(970,110)">
+                <circle r="8" fill="#0b0e14" stroke="#5b6577" stroke-width="2"/>
+                <text x="-20" y="-22" fill="#8b96a7" text-anchor="middle">Lecture 07–09</text>
+                <text x="-20" y="28" fill="#5b6577" text-anchor="middle">Trees, LogReg,</text>
+                <text x="-20" y="42" fill="#5b6577" text-anchor="middle">SVM</text>
+              </g>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 : WHAT IS IT -->
+  <section class="slide" id="slide-2">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;3&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">A Quick Distinction, Restated</div>
+        <h1>What Feature Engineering Actually Is</h1>
+        <p class="lede">Turning raw columns into columns a model can actually learn from -- fixing
+        gaps, reshaping distributions, encoding categories as numbers, and combining columns into
+        new ones that carry signal none of the originals expressed alone.</p>
+        <table class="compare">
+          <tr><th>Lecture</th><th>Question it answers</th></tr>
+          <tr><td><strong>Feature Selection</strong> (03)</td><td>"Of the columns I have, which deserve to stay?"</td></tr>
+          <tr><td><strong>Feature Engineering</strong> (today)</td><td>"What new columns would actually help, and how do I build them correctly?"</td></tr>
+        </table>
+        <div class="callout" style="margin-top:14px;">
+          <p>A realistic order: <strong>engineer</strong> new candidate features first (today),
+          <strong>select</strong> among the enlarged set afterward (Lecture 03's tools), then
+          <strong>validate</strong> the result honestly (Lecture 04's tools). All three lectures are
+          one pipeline, not three separate topics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 : WHY IT MATTERS -->
+  <section class="slide" id="slide-3">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;4&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Recall From Lecture 01</div>
+        <h1>Often the Biggest Lever You Have</h1>
+        <p>"Data quality beats algorithm choice" was stated as a principle in Lecture 01. Feature
+        engineering is where that principle turns into concrete work: a well-built feature can help
+        a simple model more than switching to a fancier algorithm ever would.</p>
+        <div class="callout">
+          <p><strong>A useful gut check before reaching for a more complex model:</strong> is there
+          a feature -- a ratio, a date part, a combination of two columns -- that would let an
+          existing simple model see the pattern directly, instead of needing a more powerful model
+          to infer it indirectly from raw columns?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 : MISSING VALUES -->
+  <section class="slide" id="slide-4">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;5&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">The Most Common Real-World Problem</div>
+        <h1>Handling Missing Values: Imputation</h1>
+        <p>Most models can't handle a blank cell directly -- something has to fill it in. The choice
+        of <em>what</em> to fill in with is itself a feature engineering decision.</p>
+        <table class="compare">
+          <tr><th>Strategy</th><th>Good for</th><th>Watch out for</th></tr>
+          <tr><td><strong>Mean</strong></td><td>Roughly symmetric numeric columns</td><td>Pulled around by outliers, same as the mean itself</td></tr>
+          <tr><td><strong>Median</strong></td><td>Skewed numeric columns (income, price)</td><td>Ignores the shape beyond the midpoint</td></tr>
+          <tr><td><strong>Mode</strong></td><td>Categorical columns</td><td>Can over-represent an already-common category</td></tr>
+          <tr><td><strong>Constant</strong> (e.g. "Unknown")</td><td>When "missing" itself might be meaningful</td><td>Adds a new category a model must still learn about</td></tr>
+        </table>
+        <div class="callout" style="margin-top:12px;">
+          <p><span class="code-chip">SimpleImputer(strategy=...)</span> handles all four -- and,
+          like every data-dependent step, its fitted fill values must come from the training fold
+          only (Lecture 04's rule, applying here too).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 : MISSINGNESS AS SIGNAL -->
+  <section class="slide" id="slide-5">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;6&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">A Detail Worth Not Throwing Away</div>
+        <h1>Sometimes "Missing" Is the Signal</h1>
+        <p class="lede">Imputing a value quietly erases the fact that it was ever missing --  but
+        sometimes <strong>whether</strong> a value was recorded at all is informative in its own
+        right. A skipped income field, a never-completed survey question, a sensor that failed to
+        report -- these can correlate with the outcome you're predicting.</p>
+        <div class="callout">
+          <p><span class="code-chip">SimpleImputer(add_indicator=True)</span> keeps both: the
+          filled-in value, <strong>and</strong> a new 0/1 column recording where a value was
+          originally missing. The model gets to use whichever one (or both) turns out to matter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 : SCALING RECAP -->
+  <section class="slide" id="slide-6">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;7&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">A Quick Recap, With One New Idea</div>
+        <h1>Scaling: Which Models Actually Need It</h1>
+        <p><span class="code-chip">StandardScaler</span> has appeared in nearly every notebook so
+        far -- worth being explicit about <em>why</em>, and which models it doesn't matter for.</p>
+        <div class="grid-2">
+          <div class="card glow-coral">
+            <h3>Scaling matters a lot</h3>
+            <p>Linear/Logistic Regression, SVM, KNN, anything using gradient descent, anything
+            measuring distance -- all directly affected by features being on wildly different
+            scales (e.g. age in years vs. income in dollars).</p>
+          </div>
+          <div class="card glow-teal">
+            <h3>Scaling barely matters</h3>
+            <p>Decision Trees and tree ensembles (Random Forest, Gradient Boosting) split on
+            thresholds one feature at a time -- whether a feature is measured in dollars or
+            thousands of dollars doesn't change where a good split falls.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:12px;">
+          <p><strong>Default habit that's rarely wrong:</strong> scale numeric features whenever
+          you're not certain the model is tree-based. It essentially never hurts a linear or
+          distance-based model, and unnecessary scaling doesn't damage a tree-based one either.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 : LOG / POWER TRANSFORMS -->
+  <section class="slide" id="slide-7">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;8&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Reshaping a Distribution</div>
+        <h1>Log and Power Transforms for Skewed Data</h1>
+        <p>Income, prices, population, transaction amounts -- real-world numeric columns are very
+        often <strong>right-skewed</strong>: a long tail of large values pulling the mean away from
+        where most of the data actually sits. Many models (especially linear ones) work better when
+        that skew is reduced.</p>
+        <div class="callout">
+          <p><span class="mono">log(x)</span> compresses large values much more than small ones --
+          turning a long right tail into something closer to symmetric. <span class="code-chip">
+          PowerTransformer</span> (Box-Cox / Yeo-Johnson) finds a more general transform
+          automatically, including handling zero or negative values Box-Cox can't.</p>
+        </div>
+        <p style="margin-top:8px;"><strong>A quick way to check if it helped:</strong> plot a
+        histogram before and after -- if the transformed version looks noticeably more symmetric
+        and bell-shaped, it was probably worth doing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 : BINNING -->
+  <section class="slide" id="slide-8">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;9&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Turning a Number Into a Category</div>
+        <h1>Binning / Discretization</h1>
+        <p>Sometimes a continuous number matters less than <em>which range</em> it falls into --
+        age as "child / adult / senior" instead of an exact year count, or income as quartiles
+        instead of a raw dollar figure.</p>
+        <div class="grid-2">
+          <div class="card glow-teal">
+            <h3>When it helps</h3>
+            <p>The true relationship is a step function, not smooth (a discount kicking in exactly
+            at "age 65"); or you want a simpler, more interpretable feature for a stakeholder-facing
+            model.</p>
+          </div>
+          <div class="card glow-coral">
+            <h3>The cost</h3>
+            <p>Information is genuinely thrown away -- two ages in the same bin become
+            indistinguishable to the model, even if they mattered differently before binning.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:12px;">
+          <p><span class="code-chip">KBinsDiscretizer(n_bins=..., strategy=...)</span> handles this
+          -- <span class="mono">strategy='quantile'</span> gives every bin roughly equal counts;
+          <span class="mono">strategy='uniform'</span> gives every bin equal-width ranges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 : ONE-HOT VS ORDINAL -->
+  <section class="slide" id="slide-9">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;10&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">A Recap, Made Explicit</div>
+        <h1>Categorical Encoding: One-Hot vs. Ordinal</h1>
+        <p><span class="code-chip">OneHotEncoder</span> has appeared constantly so far, always for
+        the same kind of column: categories with <strong>no natural order</strong> (neighborhood,
+        payment method). A different kind of column needs a different encoder.</p>
+        <table class="compare">
+          <tr><th></th><th>One-Hot</th><th>Ordinal</th></tr>
+          <tr><td>Use when</td><td>Categories have no inherent order</td><td>Categories DO have a natural order</td></tr>
+          <tr><td>Example</td><td>Neighborhood, payment method</td><td>Education level, shirt size, satisfaction rating</td></tr>
+          <tr><td>Output</td><td>One 0/1 column per category</td><td>A single column of integers (0, 1, 2, …)</td></tr>
+          <tr><td>Risk if used wrong</td><td>Wastes columns on ordered data</td><td>Invents a false distance between unordered categories</td></tr>
+        </table>
+        <div class="callout" style="margin-top:12px;">
+          <p><strong>The test:</strong> would it be reasonable to say category B is "between" A and
+          C? If yes, ordinal fits. If the categories could be listed in any order without losing
+          meaning, one-hot is correct.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 : HIGH CARDINALITY / TARGET ENCODING -->
+  <section class="slide" id="slide-10">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;11&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">When One-Hot Stops Working Well</div>
+        <h1>High-Cardinality Categories &amp; Target Encoding</h1>
+        <p>A column like <span class="code-chip">zip_code</span> or <span class="code-chip">product_id</span>
+        might have thousands of distinct values -- one-hot encoding it explodes the feature count
+        into thousands of mostly-empty columns.</p>
+        <div class="callout">
+          <p><strong>Target encoding</strong> (a.k.a. mean encoding) replaces each category with
+          the <strong>average target value</strong> for that category in the training data --
+          "this zip code's average churn rate is 31%" becomes a single number, not thousands of
+          columns.</p>
+        </div>
+        <p style="margin-top:8px;"><strong>The catch, and it's a real one:</strong> target encoding
+        computes a statistic <em>using the target column itself</em> -- which makes it unusually
+        easy to leak test information into training if you're not careful about exactly which rows'
+        target values go into each category's average. The notebook makes this concrete.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 : DATE/TIME FEATURES -->
+  <section class="slide" id="slide-11">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;12&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">A Column Type Models Can't Use Directly</div>
+        <h1>Date &amp; Time Features</h1>
+        <p>A raw timestamp is nearly useless to most models as-is -- but the calendar fields hiding
+        inside it (already used in the Pandas advanced-topics notebook via <span class="code-chip">.dt</span>)
+        are often some of the most predictive features available.</p>
+        <div class="grid-2">
+          <div class="card glow-teal">
+            <h3>Common extractions</h3>
+            <p>Year, month, day, day-of-week, hour, is-weekend, days-since-a-reference-date
+            (exactly what the churn capstone's <span class="code-chip">tenure_months</span> was).</p>
+          </div>
+          <div class="card glow-amber">
+            <h3>Why they help</h3>
+            <p>Sales spike on weekends; support tickets cluster on Mondays; churn risk changes with
+            tenure -- patterns tied to calendar structure that a raw timestamp hides completely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 : CYCLICAL ENCODING -->
+  <section class="slide" id="slide-12">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;13&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">A Subtle Trap in Date Features</div>
+        <h1>Cyclical Encoding: December and January Are Neighbors</h1>
+        <p class="lede">Month as a plain number (1-12) tells a model that December (12) is as far
+        from January (1) as it's possible to get -- but on a real calendar, they're <strong>right
+        next to each other</strong>. The same problem hits hour-of-day (23:00 and 00:00) and
+        day-of-week.</p>
+        <figure>
+          <svg viewBox="0 0 500 220" width="100%" height="200" role="img" aria-label="Month numbers arranged on a circle to show December and January are adjacent">
+            <circle cx="250" cy="105" r="85" fill="none" stroke="#2a3341"/>
+            <g font-family="IBM Plex Mono" font-size="12" fill="#8b96a7">
+              <text x="250" y="28" text-anchor="middle" fill="#5ec8c0">1</text>
+              <text x="325" y="55" text-anchor="middle">3</text>
+              <text x="350" y="110" text-anchor="middle">4-6</text>
+              <text x="325" y="165" text-anchor="middle">7</text>
+              <text x="250" y="195" text-anchor="middle">9</text>
+              <text x="175" y="165" text-anchor="middle">10</text>
+              <text x="150" y="110" text-anchor="middle">11</text>
+              <text x="175" y="55" text-anchor="middle" fill="#ffb454">12</text>
+            </g>
+            <path d="M250,43 L250,60" stroke="#5ec8c0" stroke-width="1.4"/>
+            <path d="M195,60 L215,75" stroke="#ffb454" stroke-width="1.4"/>
+            <text x="250" y="115" fill="#5b6577" text-anchor="middle" font-size="11">12 and 1 sit right next to each other</text>
+          </svg>
+        </figure>
+        <div class="callout">
+          <p><strong>The fix:</strong> encode the cyclical feature as two new columns,
+          <span class="mono">sin(2π · month / 12)</span> and <span class="mono">cos(2π · month / 12)</span>.
+          Together, these two numbers place every month at its correct position on a circle --
+          December and January end up genuinely close together, the way they should be.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 : INTERACTION FEATURES -->
+  <section class="slide" id="slide-13">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;14&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">When Two Columns Together Say More</div>
+        <h1>Interaction Features</h1>
+        <p>Some effects only show up in <strong>combination</strong>. A discount code might only
+        matter for first-time customers; square footage might only command a premium in certain
+        neighborhoods. A linear model, on its own, cannot see this -- it only sees each feature's
+        independent effect, added together.</p>
+        <div class="callout">
+          <p><span class="mono">area_sqft × neighborhood_Downtown</span> -- a new column that's
+          zero everywhere except Downtown rows, where it equals the area. A linear model can now
+          give Downtown houses a <strong>different</strong> price-per-square-foot than everywhere
+          else, something no combination of the two original features could express alone.</p>
+        </div>
+        <p style="margin-top:8px;"><span class="code-chip">PolynomialFeatures(interaction_only=True)</span>
+        generates every pairwise product automatically -- useful for a first pass, though it grows
+        fast with many features, same caution as Lecture 02's polynomial degree.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 : AGGREGATION FEATURES -->
+  <section class="slide" id="slide-14">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;15&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Comparing a Row to Its Group</div>
+        <h1>Aggregation Features: Group Statistics as New Columns</h1>
+        <p>Sometimes what matters isn't a row's raw value, but <strong>how it compares to others
+        like it</strong>. Is this house expensive for its neighborhood, or just expensive overall?
+        Is this customer's usage high for their plan type, or high in general?</p>
+        <div class="callout">
+          <p><span class="mono">price_vs_neighborhood_avg = price / mean(price, grouped by neighborhood)</span>
+          -- a <span class="code-chip">groupby().transform()</span> away in Pandas. This kind of
+          relative feature often carries more signal than either the raw value or the group average
+          alone.</p>
+        </div>
+        <p style="margin-top:8px;"><strong>A leakage risk hides here too:</strong> the group average
+        must be computed from training rows only -- computing it from the full dataset lets test
+        rows quietly influence the very statistic used to describe them. Same rule as target
+        encoding, same fix.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 : POLYNOMIAL RECAP -->
+  <section class="slide" id="slide-15">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;16&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">One You've Already Met</div>
+        <h1>Polynomial Features, Revisited</h1>
+        <p>Lecture 02 introduced <span class="code-chip">PolynomialFeatures</span> for capturing
+        curvature (<span class="mono">x²</span>, <span class="mono">x³</span>). It's worth naming
+        explicitly today: that <em>is</em> feature engineering -- new columns, built from existing
+        ones, to help a linear model express a relationship it otherwise couldn't.</p>
+        <div class="callout">
+          <p>The same overfitting risk applies here as everywhere else in this course: more
+          engineered features (polynomial or otherwise) is not automatically better. Every new
+          feature built today still needs Lecture 03's selection and Lecture 04's validation before
+          it earns a permanent place in the model.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 16 : THE LEAKAGE TRAP -->
+  <section class="slide" id="slide-16">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;17&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">A Sneakier Version of an Old Problem</div>
+        <h1>The Leakage Trap for Feature Engineering</h1>
+        <p class="lede">Target encoding and aggregation features are especially easy to leak,
+        because -- unlike scaling or imputing -- <strong>the feature itself is computed from the
+        target, or from other rows' values</strong>. It's not always obvious you're touching data
+        you shouldn't.</p>
+        <div class="grid-2">
+          <div class="card glow-coral">
+            <h3>The leaky way</h3>
+            <p>Compute each category's average target (or each group's average value) using
+            <strong>every row</strong>, including rows that will later become the test set. Every
+            row's engineered feature is partly built from its own target value.</p>
+          </div>
+          <div class="card glow-teal">
+            <h3>The correct way</h3>
+            <p>Compute the average using <strong>only the training fold</strong>, then apply that
+            fitted mapping to the test fold. Inside cross-validation, this means recomputing the
+            averages fresh, inside every single fold.</p>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:14px;">
+          <p>Exactly the same fix as always: put the encoder inside the <span class="code-chip">
+          Pipeline</span> that gets cross-validated, so it's structurally impossible to compute it
+          on the wrong rows. The notebook shows the inflated score this produces when skipped.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17 : OUTLIERS -->
+  <section class="slide" id="slide-17">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;18&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">A Decision, Not an Automatic Step</div>
+        <h1>Outliers: Detect, Then Decide</h1>
+        <p>An unusually large or small value isn't automatically an error -- it might be the most
+        important row in the dataset (the fraud case, the viral post). Detecting outliers is
+        mechanical; deciding what to do about them is judgment.</p>
+        <table class="compare">
+          <tr><th>Detection</th><th>How it works</th></tr>
+          <tr><td><strong>IQR method</strong></td><td>Flag anything beyond 1.5x the interquartile range past Q1/Q3</td></tr>
+          <tr><td><strong>Z-score</strong></td><td>Flag anything more than ~3 standard deviations from the mean</td></tr>
+        </table>
+        <div class="grid-2" style="margin-top:12px;">
+          <div class="card glow-teal">
+            <h3>Cap / winsorize</h3>
+            <p>Clip extreme values to a reasonable maximum instead of removing them -- keeps the
+            row, softens its influence.</p>
+          </div>
+          <div class="card glow-coral">
+            <h3>Remove</h3>
+            <p>Justified when a value is a clear data-entry error (age = 200) -- risky when the
+            "outlier" is a genuine, rare, important case.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18 : IN A PIPELINE -->
+  <section class="slide" id="slide-18">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;19&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Making It All Safe by Construction</div>
+        <h1>Every Technique Today Belongs in the Pipeline</h1>
+        <p>Imputers, scalers, encoders, custom transforms -- every one of today's techniques is
+        data-dependent, and every one of them follows Lecture 04's rule: fit on training data only.
+        <span class="code-chip">ColumnTransformer</span> and <span class="code-chip">FunctionTransformer</span>
+        turn that rule into structure instead of memory.</p>
+        <figure>
+          <svg viewBox="0 0 900 100" width="100%" height="90" role="img" aria-label="Pipeline diagram from raw columns through engineered features to a trained model">
+            <g font-family="IBM Plex Mono" font-size="12.5">
+              <rect x="10" y="25" width="180" height="50" rx="8" fill="#171d29" stroke="#2a3341" stroke-width="1.4"/>
+              <text x="100" y="55" fill="#e9eef4" text-anchor="middle">Raw Columns</text>
+              <rect x="240" y="25" width="220" height="50" rx="8" fill="#1d2433" stroke="#ffb454" stroke-width="1.6"/>
+              <text x="350" y="55" fill="#ffb454" text-anchor="middle">Engineer Features</text>
+              <rect x="500" y="25" width="180" height="50" rx="8" fill="#171d29" stroke="#5ec8c0" stroke-width="1.6"/>
+              <text x="590" y="55" fill="#5ec8c0" text-anchor="middle">Select Features</text>
+              <rect x="720" y="25" width="170" height="50" rx="8" fill="#171d29" stroke="#9d8cff" stroke-width="1.6"/>
+              <text x="805" y="55" fill="#9d8cff" text-anchor="middle">Train Model</text>
+              <path d="M190,50 L240,50" stroke="#5b6577" stroke-width="1.6" marker-end="url(#fepa)"/>
+              <path d="M460,50 L500,50" stroke="#5b6577" stroke-width="1.6" marker-end="url(#fepa)"/>
+              <path d="M680,50 L720,50" stroke="#5b6577" stroke-width="1.6" marker-end="url(#fepa)"/>
+            </g>
+            <defs><marker id="fepa" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0L6,3L0,6Z" fill="#5b6577"/></marker></defs>
+          </svg>
+        </figure>
+        <p style="margin-top:2px;">Cross-validate or grid-search the <strong>whole</strong> pipeline,
+        and every fold engineers, selects, and trains fresh -- using only that fold's training
+        rows, at every single stage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 19 : SUMMARY -->
+  <section class="slide" id="slide-19">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;20&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Summary</div>
+        <h1>What to Carry Into the Notebook</h1>
+        <table class="compare">
+          <tr><th>Idea</th><th>Takeaway</th></tr>
+          <tr><td>What FE is</td><td>Building new columns, distinct from selecting among existing ones</td></tr>
+          <tr><td>Missing values</td><td>Impute thoughtfully (mean/median/mode/constant); consider an indicator flag</td></tr>
+          <tr><td>Scaling</td><td>Matters for linear/distance-based models, barely matters for trees</td></tr>
+          <tr><td>Skewed numerics</td><td>Log or power transforms make many distributions more model-friendly</td></tr>
+          <tr><td>Binning</td><td>Trades information for simplicity or step-function behavior</td></tr>
+          <tr><td>Encoding</td><td>One-hot for unordered categories, ordinal for ordered ones, target encoding for high cardinality</td></tr>
+          <tr><td>Dates</td><td>Extract calendar parts; use sin/cos for anything cyclical</td></tr>
+          <tr><td>Interactions &amp; aggregations</td><td>Capture combined effects and group-relative context</td></tr>
+          <tr><td>The leakage trap</td><td>Target encoding and group stats must be fit on training folds only</td></tr>
+          <tr><td>Outliers</td><td>Detect mechanically, decide with judgment</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 : NEXT -->
+  <section class="slide" id="slide-20">
+    <div class="cell">
+      <div class="prompt">In&nbsp;[&nbsp;21&nbsp;]:</div>
+      <div class="cell-body">
+        <div class="eyebrow">Next Lecture</div>
+        <h1>Classification</h1>
+        <p class="lede">Regression has been the running example for four lectures. Next lecture
+        turns to predicting a category instead of a number -- and every technique from today
+        (encoding, scaling, engineered features) carries over directly, on a new kind of target.</p>
+        <div class="card glow-amber" style="max-width:520px;">
+          <h3>Bring with you</h3>
+          <p>The habit of asking "does this feature need to be fit on training data only?" --
+          it applies just as much to a classification target as it did to price.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="navbar">
+  <button class="nav-btn" id="prevBtn" aria-label="Previous slide">‹</button>
+  <button class="nav-btn" id="nextBtn" aria-label="Next slide">›</button>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="nav-title" id="navTitle"></div>
+  <div class="nav-label" id="navLabel">1 / 18</div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var current = 0;
+  var titles = [
+    'Title','Recap & Roadmap','What Is It','Why It Matters','Missing Values','Missingness as Signal',
+    'Scaling Recap','Log & Power Transforms','Binning','One-Hot vs Ordinal','High Cardinality & Target Encoding',
+    'Date & Time Features','Cyclical Encoding','Interaction Features','Aggregation Features',
+    'Polynomial Recap','The Leakage Trap','Outliers','In a Pipeline','Summary','Next Lecture'
+  ];
+
+  var kernelDot = document.getElementById('kernelDot');
+  var kernelText = document.getElementById('kernelText');
+  var cellCounter = document.getElementById('cellCounter');
+  var progressFill = document.getElementById('progressFill');
+  var navLabel = document.getElementById('navLabel');
+  var navTitle = document.getElementById('navTitle');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  function render(){
+    slides.forEach(function(s, i){ s.classList.toggle('active', i === current); });
+    progressFill.style.width = ((current) / (total - 1) * 100) + '%';
+    navLabel.textContent = (current + 1) + ' / ' + total;
+    navTitle.textContent = titles[current] || '';
+    cellCounter.textContent = 'Cell ' + (current + 1) + ' / ' + total;
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
+  function goTo(i){
+    if (i < 0 || i >= total || i === current) return;
+    current = i;
+    kernelDot.classList.add('busy');
+    kernelText.textContent = 'Python 3 (ML Track) — running cell ' + (current + 1) + '…';
+    render();
+    window.setTimeout(function(){
+      kernelDot.classList.remove('busy');
+      kernelText.textContent = 'Python 3 (ML Track) — idle';
+    }, 380);
+  }
+
+  prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+
+  document.addEventListener('keydown', function(e){
+    if (['ArrowRight','ArrowDown','PageDown',' '].indexOf(e.key) > -1){ e.preventDefault(); goTo(current + 1); }
+    else if (['ArrowLeft','ArrowUp','PageUp'].indexOf(e.key) > -1){ e.preventDefault(); goTo(current - 1); }
+    else if (e.key === 'Home'){ e.preventDefault(); goTo(0); }
+    else if (e.key === 'End'){ e.preventDefault(); goTo(total - 1); }
+  });
+
+  var touchStartX = null;
+  document.addEventListener('touchstart', function(e){ touchStartX = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 60){ dx < 0 ? goTo(current + 1) : goTo(current - 1); }
+    touchStartX = null;
+  }, {passive:true});
+
+  render();
+})();
+</script>
+
+</body>
+</html>
