@@ -17,8 +17,30 @@ def training_step(
     optimizer: torch.optim.Optimizer,
 ) -> dict[str, float]:
     """Run one parallel teacher-forced optimization step."""
-    # TODO(HW01): Implement this function.
-    raise NotImplementedError("TODO(HW01)")
+    model.train()
+    optimizer.zero_grad(set_to_none=True)
+
+    output = model(input_ids, targets=labels)   # one forward pass
+    loss = output.loss
+    if loss is None:
+        raise RuntimeError("model did not return a loss")
+
+    loss.backward()
+
+    grad_sq = 0.0
+    for p in model.parameters():
+        if p.grad is not None:
+            grad_sq += float(p.grad.detach().pow(2).sum())
+    gradient_norm = grad_sq ** 0.5
+
+    optimizer.step()
+
+    return {
+        "loss": float(loss.detach()),
+        "gradient_norm": float(gradient_norm),
+        "supervised_positions": float(labels.numel()),
+    }
+
 
 @torch.inference_mode()
 def evaluate_loss(

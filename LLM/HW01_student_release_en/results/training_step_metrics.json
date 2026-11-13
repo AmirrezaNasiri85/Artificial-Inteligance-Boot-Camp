@@ -1,0 +1,21 @@
+{
+  "loss": 5.608509063720703,
+  "gradient_norm": 6.005691481815275,
+  "supervised_positions": 64.0,
+  "batch_shape": [
+    2,
+    32
+  ],
+  "logit_shape": [
+    2,
+    32,
+    260
+  ],
+  "label_shape": [
+    2,
+    32
+  ],
+  "forward_passes": 1.0,
+  "parameters_changed": true,
+  "model_training_mode": true
+}
