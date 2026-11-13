@@ -1,0 +1,45 @@
+[
+  {
+    "text": "Hello!",
+    "token_ids": [
+      1,
+      76,
+      105,
+      112,
+      112,
+      115,
+      37,
+      2
+    ],
+    "decoded_without_specials": "Hello!"
+  },
+  {
+    "text": "café MiniGPT",
+    "token_ids": [
+      1,
+      103,
+      101,
+      106,
+      199,
+      173,
+      36,
+      81,
+      109,
+      114,
+      109,
+      75,
+      84,
+      88,
+      2
+    ],
+    "decoded_without_specials": "café MiniGPT"
+  },
+  {
+    "text": "",
+    "token_ids": [
+      1,
+      2
+    ],
+    "decoded_without_specials": ""
+  }
+]
