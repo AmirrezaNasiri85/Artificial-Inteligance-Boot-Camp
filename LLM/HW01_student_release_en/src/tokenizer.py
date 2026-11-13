@@ -27,7 +27,6 @@ def decode_tokens(token_ids: list[int]) -> str:
     # then the other codes are collected and gathered to be decoded.
     raw = bytearray()
     for tokenid in token_ids:
-
         if not BYTE_OFFSET <= tokenid < VOCAB_SIZE:
             raise ValueError(f"Invalid token id: {tokenid}")
         raw.append(tokenid - BYTE_OFFSET)

@@ -1,0 +1,13 @@
+position,input_token_id,input_token_display,target_token_id,target_token_display
+0,1,<BOS>,88,T
+1,88,T,108,h
+2,108,h,105,e
+3,105,e,36, 
+4,36, ,103,c
+5,103,c,101,a
+6,101,a,120,t
+7,120,t,36, 
+8,36, ,119,s
+9,119,s,101,a
+10,101,a,120,t
+11,120,t,2,<EOS>

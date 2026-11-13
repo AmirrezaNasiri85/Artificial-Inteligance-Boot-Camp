@@ -8,8 +8,11 @@ from .tokenizer import encode_text
 
 
 def create_lm_example(token_ids: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
-    # TODO(HW01): Implement this function.
-    raise NotImplementedError("TODO(HW01)")
+    if token_ids.ndim != 1 or token_ids.numel() < 2:
+        raise ValueError("token_ids must be 1-D with at least two tokens")
+    inputs = token_ids[:-1]
+    labels = token_ids[1:]
+    return inputs, labels
 
 def load_corpus_tokens(path: str | Path) -> torch.Tensor:
     return torch.tensor(encode_text(Path(path).read_text(encoding="utf-8"), add_eos=True), dtype=torch.long)
