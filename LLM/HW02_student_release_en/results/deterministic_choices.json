@@ -1,0 +1,54 @@
+{
+  "model": {
+    "greedy": {
+      "selected_token_id": 36,
+      "rank": 1,
+      "model_probability": 0.10031966865062714,
+      "sampling_probability": 1.0
+    },
+    "second_best": {
+      "selected_token_id": 50,
+      "rank": 2,
+      "model_probability": 0.0695275366306305,
+      "sampling_probability": 0.0695275366306305
+    }
+  },
+  "distribution_A": {
+    "probabilities": [
+      0.51,
+      0.48,
+      0.01
+    ],
+    "greedy": {
+      "selected_token_id": 0,
+      "rank": 1,
+      "model_probability": 0.5099999904632568,
+      "sampling_probability": 1.0
+    },
+    "second_best": {
+      "selected_token_id": 1,
+      "rank": 2,
+      "model_probability": 0.47999995946884155,
+      "sampling_probability": 0.47999998807907035
+    }
+  },
+  "distribution_B": {
+    "probabilities": [
+      0.95,
+      0.03,
+      0.02
+    ],
+    "greedy": {
+      "selected_token_id": 0,
+      "rank": 1,
+      "model_probability": 0.9500000476837158,
+      "sampling_probability": 1.0
+    },
+    "second_best": {
+      "selected_token_id": 1,
+      "rank": 2,
+      "model_probability": 0.030000001192092896,
+      "sampling_probability": 0.030000001192092896
+    }
+  }
+}
