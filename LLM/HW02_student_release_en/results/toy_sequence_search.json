@@ -1,0 +1,26 @@
+{
+  "greedy": {
+    "tokens": [
+      "A",
+      "C"
+    ],
+    "transition_probabilities": [
+      0.6,
+      0.51
+    ],
+    "log_probability": -1.1841701770297564,
+    "sequence_probability": 0.306
+  },
+  "optimal": {
+    "tokens": [
+      "B",
+      "E"
+    ],
+    "transition_probabilities": [
+      0.4,
+      0.99
+    ],
+    "log_probability": -0.9263410677276565,
+    "sequence_probability": 0.396
+  }
+}
