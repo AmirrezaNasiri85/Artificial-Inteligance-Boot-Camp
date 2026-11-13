@@ -1,0 +1,22 @@
+{
+  "description": "Greedy chooses A first (0.60) and reaches probability 0.306; B first (0.40) leads to the globally best sequence with probability 0.396.",
+  "start_state": "root",
+  "depth": 2,
+  "expected_greedy_tokens": ["A", "C"],
+  "expected_optimal_tokens": ["B", "E"],
+  "states": {
+    "root": [
+      {"token": "A", "probability": 0.60, "next_state": "after_A"},
+      {"token": "B", "probability": 0.40, "next_state": "after_B"}
+    ],
+    "after_A": [
+      {"token": "C", "probability": 0.51, "next_state": "end_AC"},
+      {"token": "D", "probability": 0.49, "next_state": "end_AD"}
+    ],
+    "after_B": [
+      {"token": "E", "probability": 0.99, "next_state": "end_BE"},
+      {"token": "F", "probability": 0.01, "next_state": "end_BF"}
+    ]
+  }
+}
+
