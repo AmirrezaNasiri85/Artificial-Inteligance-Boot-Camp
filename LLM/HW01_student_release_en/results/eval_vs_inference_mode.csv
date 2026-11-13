@@ -1,0 +1,5 @@
+configuration,model.training,torch.is_grad_enabled,output.requires_grad,dropout_active_or_repeat_outputs_equal
+train + grad,True,True,True,False
+eval + grad,False,True,True,True
+train + inference_mode,True,False,False,False
+eval + inference_mode,False,False,False,True

@@ -1,0 +1,13 @@
+dimension,training,inference
+architecture,same decoder-only MiniGPT,same decoder-only MiniGPT
+model mode,train(),eval()
+ground-truth previous tokens,yes,prompt only
+self-generated previous tokens,no,yes
+forward passes,1 for the measured batch,80
+logits used,all valid positions,final position per step
+gradient tracking,enabled,disabled
+optimizer,used,not used
+dropout,active,disabled by eval()
+known-position parallelism,B x T positions,within each current prefix
+decoding dependency,labels already known,next input waits for selected token
+memory,"activations, gradients, optimizer",no autograd graph or optimizer

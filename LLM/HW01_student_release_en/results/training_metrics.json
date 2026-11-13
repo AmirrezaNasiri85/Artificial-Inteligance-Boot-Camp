@@ -5,7 +5,7 @@
   "training_steps": 20,
   "batch_size": 4,
   "sequence_length": 64,
-  "wall_clock_seconds": 0.3660390000004554,
+  "wall_clock_seconds": 0.3895048000049428,
   "parameter_count": 644736,
   "fp32_parameter_memory_bytes": 2578944,
   "loss_history": [
