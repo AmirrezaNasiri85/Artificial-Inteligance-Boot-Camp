@@ -1,0 +1,9 @@
+[
+  {"id": "letter_dialogue", "category": "dialogue", "text": "Holmes looked at the letter and said, \""},
+  {"id": "watson_door", "category": "continuation", "text": "Watson opened the door and"},
+  {"id": "cold_london", "category": "story", "text": "It was a cold night in London, and"},
+  {"id": "asked_meaning", "category": "question", "text": "\"What do you mean?\" asked"},
+  {"id": "three_clues", "category": "list", "text": "The three clues were:"},
+  {"id": "mystery_began", "category": "story", "text": "The mystery began when"}
+]
+

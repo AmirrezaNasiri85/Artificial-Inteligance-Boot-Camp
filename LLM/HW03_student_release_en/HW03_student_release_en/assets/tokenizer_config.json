@@ -1,0 +1,12 @@
+{
+  "type": "utf8-byte-level",
+  "vocab_size": 260,
+  "byte_offset": 4,
+  "special_tokens": {
+    "PAD": 0,
+    "BOS": 1,
+    "EOS": 2,
+    "UNK": 3
+  },
+  "decode_special_token_policy": "raise ValueError"
+}
