@@ -6,9 +6,9 @@
   ],
   "naive_output_finite": false,
   "stable_probabilities": [
-    NaN,
-    NaN,
-    NaN
+    0.09003057330846786,
+    0.2447284758090973,
+    0.6652409434318542
   ],
-  "stable_probability_sum": NaN
+  "stable_probability_sum": 1.0
 }

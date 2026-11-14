@@ -1,0 +1,7 @@
+strategy,deterministic,candidate_set_rule,uses_randomness,seed_sensitive,can_select_low_ranked_tokens,candidate_count_behavior,typical_diversity_behavior,major_failure_mode
+greedy,True,highest-probability token,False,False,False,fixed: 1,usually low,repetition and local myopia
+second_best,True,always rank 2,False,False,False,fixed: 1,uncontrolled,may force very unlikely tokens
+multinomial,False,full vocabulary,True,True,True,fixed: vocabulary,often high,long low-probability tail
+top-k,False,highest k tokens,True,True,True,fixed: k,controlled by k,fixed k ignores distribution shape
+top-p,False,minimal mass-p support,True,True,True,variable,adapts to concentration,threshold and seed sensitivity
+entropy-adaptive,False,greedy or top-p by entropy,True,True,True,1 or variable,conditional,calibration heuristic may not generalize

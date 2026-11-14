@@ -1,0 +1,139 @@
+run_id,prompt_id,category,prompt,strategy,seed,generated_text,generated_token_count,stop_reason,sequence_log_probability,average_log_probability
+letter_dialogue__greedy__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,greedy,1403,,40,max_new_tokens,-44.88100199915007,-1.1220250499787519
+letter_dialogue__second_best__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,second_best,1403,,40,max_new_tokens,-85.86009632120438,-2.1465024080301096
+letter_dialogue__multinomial_T1.0__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,multinomial_T1.0,1403,,40,max_new_tokens,-87.66139527824431,-2.191534881956108
+letter_dialogue__multinomial_T1.0__1404,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,multinomial_T1.0,1404,,40,max_new_tokens,-80.3152671735778,-2.007881679339445
+letter_dialogue__multinomial_T1.0__1405,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,multinomial_T1.0,1405,,40,max_new_tokens,-106.85800488786468,-2.671450122196617
+letter_dialogue__top_k_5_T1.0__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_k_5_T1.0,1403,,40,max_new_tokens,-71.1841195090688,-1.7796029877267199
+letter_dialogue__top_k_5_T1.0__1404,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_k_5_T1.0,1404,,40,max_new_tokens,-69.64239659555678,-1.7410599148889194
+letter_dialogue__top_k_5_T1.0__1405,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_k_5_T1.0,1405,,40,max_new_tokens,-60.59839629929013,-1.5149599074822533
+letter_dialogue__top_k_20_T1.0__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_k_20_T1.0,1403,,40,max_new_tokens,-108.51759096776584,-2.712939774194146
+letter_dialogue__top_k_20_T1.0__1404,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_k_20_T1.0,1404,,40,max_new_tokens,-96.75816429665406,-2.4189541074163516
+letter_dialogue__top_k_20_T1.0__1405,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_k_20_T1.0,1405,,40,max_new_tokens,-98.05993188028626,-2.4514982970071566
+letter_dialogue__top_p_0.80_T1.0__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_p_0.80_T1.0,1403,,40,max_new_tokens,-86.77203586583306,-2.1693008966458267
+letter_dialogue__top_p_0.80_T1.0__1404,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_p_0.80_T1.0,1404,,40,max_new_tokens,-84.36699853318213,-2.1091749633295533
+letter_dialogue__top_p_0.80_T1.0__1405,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_p_0.80_T1.0,1405,,40,max_new_tokens,-84.00438934635731,-2.100109733658933
+letter_dialogue__top_p_0.95_T1.0__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_p_0.95_T1.0,1403,,40,max_new_tokens,-77.22245591310443,-1.9305613978276106
+letter_dialogue__top_p_0.95_T1.0__1404,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_p_0.95_T1.0,1404,,40,max_new_tokens,-102.01885336558921,-2.55047133413973
+letter_dialogue__top_p_0.95_T1.0__1405,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,top_p_0.95_T1.0,1405,,40,max_new_tokens,-96.06689447630863,-2.401672361907716
+letter_dialogue__temperature_0.5_sampling__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,temperature_0.5_sampling,1403,,40,max_new_tokens,-53.497829155020156,-1.337445728875504
+letter_dialogue__temperature_0.5_sampling__1404,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,temperature_0.5_sampling,1404,,40,max_new_tokens,-44.2559041797451,-1.1063976044936275
+letter_dialogue__temperature_0.5_sampling__1405,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,temperature_0.5_sampling,1405,,40,max_new_tokens,-66.47151791465745,-1.6617879478664364
+letter_dialogue__temperature_1.5_sampling__1403,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,temperature_1.5_sampling,1403,,40,max_new_tokens,-146.81521828623113,-3.6703804571557783
+letter_dialogue__temperature_1.5_sampling__1404,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,temperature_1.5_sampling,1404,,40,max_new_tokens,-142.09324882501204,-3.552331220625301
+letter_dialogue__temperature_1.5_sampling__1405,letter_dialogue,dialogue,"Holmes looked at the letter and said, """,temperature_1.5_sampling,1405,,40,max_new_tokens,-158.9450289315892,-3.97362572328973
+watson_door__greedy__1403,watson_door,continuation,Watson opened the door and,greedy,1403,,40,max_new_tokens,-35.92462307854925,-0.8981155769637313
+watson_door__second_best__1403,watson_door,continuation,Watson opened the door and,second_best,1403,,40,max_new_tokens,-80.63376736468994,-2.0158441841172485
+watson_door__multinomial_T1.0__1403,watson_door,continuation,Watson opened the door and,multinomial_T1.0,1403,,40,max_new_tokens,-96.73278645619305,-2.4183196614048263
+watson_door__multinomial_T1.0__1404,watson_door,continuation,Watson opened the door and,multinomial_T1.0,1404,,40,max_new_tokens,-86.60312713943306,-2.1650781784858264
+watson_door__multinomial_T1.0__1405,watson_door,continuation,Watson opened the door and,multinomial_T1.0,1405,,40,max_new_tokens,-98.99385121262073,-2.4748462803155182
+watson_door__top_k_5_T1.0__1403,watson_door,continuation,Watson opened the door and,top_k_5_T1.0,1403,,40,max_new_tokens,-68.88404952919896,-1.722101238229974
+watson_door__top_k_5_T1.0__1404,watson_door,continuation,Watson opened the door and,top_k_5_T1.0,1404,,40,max_new_tokens,-70.29154413003731,-1.7572886032509327
+watson_door__top_k_5_T1.0__1405,watson_door,continuation,Watson opened the door and,top_k_5_T1.0,1405,,40,max_new_tokens,-71.7222135076493,-1.7930553376912326
+watson_door__top_k_20_T1.0__1403,watson_door,continuation,Watson opened the door and,top_k_20_T1.0,1403,,40,max_new_tokens,-92.18233187798853,-2.3045582969497134
+watson_door__top_k_20_T1.0__1404,watson_door,continuation,Watson opened the door and,top_k_20_T1.0,1404,,40,max_new_tokens,-89.1123883653255,-2.2278097091331377
+watson_door__top_k_20_T1.0__1405,watson_door,continuation,Watson opened the door and,top_k_20_T1.0,1405,,40,max_new_tokens,-105.86809322209953,-2.6467023305524884
+watson_door__top_p_0.80_T1.0__1403,watson_door,continuation,Watson opened the door and,top_p_0.80_T1.0,1403,,40,max_new_tokens,-80.49654986096012,-2.012413746524003
+watson_door__top_p_0.80_T1.0__1404,watson_door,continuation,Watson opened the door and,top_p_0.80_T1.0,1404,,40,max_new_tokens,-80.38605682887084,-2.009651420721771
+watson_door__top_p_0.80_T1.0__1405,watson_door,continuation,Watson opened the door and,top_p_0.80_T1.0,1405,,40,max_new_tokens,-69.56500817527349,-1.7391252043818373
+watson_door__top_p_0.95_T1.0__1403,watson_door,continuation,Watson opened the door and,top_p_0.95_T1.0,1403,,40,max_new_tokens,-81.13202106282874,-2.0283005265707184
+watson_door__top_p_0.95_T1.0__1404,watson_door,continuation,Watson opened the door and,top_p_0.95_T1.0,1404,,40,max_new_tokens,-82.78089624852919,-2.06952240621323
+watson_door__top_p_0.95_T1.0__1405,watson_door,continuation,Watson opened the door and,top_p_0.95_T1.0,1405,,40,max_new_tokens,-80.38644454165514,-2.0096611135413784
+watson_door__temperature_0.5_sampling__1403,watson_door,continuation,Watson opened the door and,temperature_0.5_sampling,1403,,40,max_new_tokens,-45.4415074328765,-1.1360376858219126
+watson_door__temperature_0.5_sampling__1404,watson_door,continuation,Watson opened the door and,temperature_0.5_sampling,1404,,40,max_new_tokens,-50.02986952626456,-1.250746738156614
+watson_door__temperature_0.5_sampling__1405,watson_door,continuation,Watson opened the door and,temperature_0.5_sampling,1405,,40,max_new_tokens,-60.51326921653077,-1.5128317304132692
+watson_door__temperature_1.5_sampling__1403,watson_door,continuation,Watson opened the door and,temperature_1.5_sampling,1403,,40,max_new_tokens,-151.78048772442884,-3.794512193110721
+watson_door__temperature_1.5_sampling__1404,watson_door,continuation,Watson opened the door and,temperature_1.5_sampling,1404,,40,max_new_tokens,-124.55958415940682,-3.1139896039851704
+watson_door__temperature_1.5_sampling__1405,watson_door,continuation,Watson opened the door and,temperature_1.5_sampling,1405,,40,max_new_tokens,-152.18681110486594,-3.8046702776216486
+cold_london__greedy__1403,cold_london,story,"It was a cold night in London, and",greedy,1403,,40,max_new_tokens,-42.52941377859195,-1.0632353444647988
+cold_london__second_best__1403,cold_london,story,"It was a cold night in London, and",second_best,1403,,40,max_new_tokens,-80.41159863876206,-2.0102899659690516
+cold_london__multinomial_T1.0__1403,cold_london,story,"It was a cold night in London, and",multinomial_T1.0,1403,,40,max_new_tokens,-79.77870741738217,-1.9944676854345542
+cold_london__multinomial_T1.0__1404,cold_london,story,"It was a cold night in London, and",multinomial_T1.0,1404,,40,max_new_tokens,-85.57220762003622,-2.1393051905009055
+cold_london__multinomial_T1.0__1405,cold_london,story,"It was a cold night in London, and",multinomial_T1.0,1405,,40,max_new_tokens,-106.38469940038098,-2.6596174850095244
+cold_london__top_k_5_T1.0__1403,cold_london,story,"It was a cold night in London, and",top_k_5_T1.0,1403,,40,max_new_tokens,-70.97951868041122,-1.7744879670102804
+cold_london__top_k_5_T1.0__1404,cold_london,story,"It was a cold night in London, and",top_k_5_T1.0,1404,,40,max_new_tokens,-76.71142731038768,-1.917785682759692
+cold_london__top_k_5_T1.0__1405,cold_london,story,"It was a cold night in London, and",top_k_5_T1.0,1405,,40,max_new_tokens,-70.40926628957229,-1.760231657239307
+cold_london__top_k_20_T1.0__1403,cold_london,story,"It was a cold night in London, and",top_k_20_T1.0,1403,,40,max_new_tokens,-113.75301511317419,-2.8438253778293547
+cold_london__top_k_20_T1.0__1404,cold_london,story,"It was a cold night in London, and",top_k_20_T1.0,1404,,40,max_new_tokens,-86.50384566769432,-2.162596141692358
+cold_london__top_k_20_T1.0__1405,cold_london,story,"It was a cold night in London, and",top_k_20_T1.0,1405,,40,max_new_tokens,-85.45117134036819,-2.1362792835092046
+cold_london__top_p_0.80_T1.0__1403,cold_london,story,"It was a cold night in London, and",top_p_0.80_T1.0,1403,,40,max_new_tokens,-77.90261697778294,-1.9475654244445735
+cold_london__top_p_0.80_T1.0__1404,cold_london,story,"It was a cold night in London, and",top_p_0.80_T1.0,1404,,40,max_new_tokens,-68.16523559855281,-1.7041308899638203
+cold_london__top_p_0.80_T1.0__1405,cold_london,story,"It was a cold night in London, and",top_p_0.80_T1.0,1405,,40,max_new_tokens,-70.30837842206398,-1.7577094605515995
+cold_london__top_p_0.95_T1.0__1403,cold_london,story,"It was a cold night in London, and",top_p_0.95_T1.0,1403,,40,max_new_tokens,-95.14046947439246,-2.3785117368598114
+cold_london__top_p_0.95_T1.0__1404,cold_london,story,"It was a cold night in London, and",top_p_0.95_T1.0,1404,,40,max_new_tokens,-80.84895311018029,-2.021223827754507
+cold_london__top_p_0.95_T1.0__1405,cold_london,story,"It was a cold night in London, and",top_p_0.95_T1.0,1405,,40,max_new_tokens,-91.18131336467782,-2.2795328341169454
+cold_london__temperature_0.5_sampling__1403,cold_london,story,"It was a cold night in London, and",temperature_0.5_sampling,1403,,40,max_new_tokens,-54.4144288266865,-1.3603607206671626
+cold_london__temperature_0.5_sampling__1404,cold_london,story,"It was a cold night in London, and",temperature_0.5_sampling,1404,,40,max_new_tokens,-46.413464587643105,-1.1603366146910776
+cold_london__temperature_0.5_sampling__1405,cold_london,story,"It was a cold night in London, and",temperature_0.5_sampling,1405,,40,max_new_tokens,-69.73631333232011,-1.7434078333080028
+cold_london__temperature_1.5_sampling__1403,cold_london,story,"It was a cold night in London, and",temperature_1.5_sampling,1403,,40,max_new_tokens,-136.8825506285178,-3.422063765712945
+cold_london__temperature_1.5_sampling__1404,cold_london,story,"It was a cold night in London, and",temperature_1.5_sampling,1404,,40,max_new_tokens,-128.20934743510176,-3.205233685877544
+cold_london__temperature_1.5_sampling__1405,cold_london,story,"It was a cold night in London, and",temperature_1.5_sampling,1405,,40,max_new_tokens,-148.2194098604885,-3.7054852465122123
+asked_meaning__greedy__1403,asked_meaning,question,"""What do you mean?"" asked",greedy,1403,,40,max_new_tokens,-36.856245059695816,-0.9214061264923954
+asked_meaning__second_best__1403,asked_meaning,question,"""What do you mean?"" asked",second_best,1403,,40,max_new_tokens,-81.25143637744242,-2.0312859094360602
+asked_meaning__multinomial_T1.0__1403,asked_meaning,question,"""What do you mean?"" asked",multinomial_T1.0,1403,,40,max_new_tokens,-92.6182215524467,-2.3154555388111673
+asked_meaning__multinomial_T1.0__1404,asked_meaning,question,"""What do you mean?"" asked",multinomial_T1.0,1404,,40,max_new_tokens,-82.58293101077335,-2.0645732752693338
+asked_meaning__multinomial_T1.0__1405,asked_meaning,question,"""What do you mean?"" asked",multinomial_T1.0,1405,,40,max_new_tokens,-107.7069256474164,-2.69267314118541
+asked_meaning__top_k_5_T1.0__1403,asked_meaning,question,"""What do you mean?"" asked",top_k_5_T1.0,1403,,40,max_new_tokens,-71.29631516279838,-1.7824078790699596
+asked_meaning__top_k_5_T1.0__1404,asked_meaning,question,"""What do you mean?"" asked",top_k_5_T1.0,1404,,40,max_new_tokens,-73.03144574425637,-1.8257861436064093
+asked_meaning__top_k_5_T1.0__1405,asked_meaning,question,"""What do you mean?"" asked",top_k_5_T1.0,1405,,40,max_new_tokens,-70.2414134320552,-1.7560353358013798
+asked_meaning__top_k_20_T1.0__1403,asked_meaning,question,"""What do you mean?"" asked",top_k_20_T1.0,1403,,40,max_new_tokens,-74.6831789301086,-1.867079473252715
+asked_meaning__top_k_20_T1.0__1404,asked_meaning,question,"""What do you mean?"" asked",top_k_20_T1.0,1404,,40,max_new_tokens,-86.64900030294406,-2.1662250075736016
+asked_meaning__top_k_20_T1.0__1405,asked_meaning,question,"""What do you mean?"" asked",top_k_20_T1.0,1405,,40,max_new_tokens,-86.0004123456227,-2.1500103086405677
+asked_meaning__top_p_0.80_T1.0__1403,asked_meaning,question,"""What do you mean?"" asked",top_p_0.80_T1.0,1403,,40,max_new_tokens,-70.2164387916709,-1.7554109697917724
+asked_meaning__top_p_0.80_T1.0__1404,asked_meaning,question,"""What do you mean?"" asked",top_p_0.80_T1.0,1404,,40,max_new_tokens,-74.12233791392192,-1.853058447848048
+asked_meaning__top_p_0.80_T1.0__1405,asked_meaning,question,"""What do you mean?"" asked",top_p_0.80_T1.0,1405,,40,max_new_tokens,-73.23892314375239,-1.8309730785938096
+asked_meaning__top_p_0.95_T1.0__1403,asked_meaning,question,"""What do you mean?"" asked",top_p_0.95_T1.0,1403,,40,max_new_tokens,-94.31162450487376,-2.357790612621844
+asked_meaning__top_p_0.95_T1.0__1404,asked_meaning,question,"""What do you mean?"" asked",top_p_0.95_T1.0,1404,,40,max_new_tokens,-93.77859555289697,-2.3444648888224244
+asked_meaning__top_p_0.95_T1.0__1405,asked_meaning,question,"""What do you mean?"" asked",top_p_0.95_T1.0,1405,,40,max_new_tokens,-86.60527435855045,-2.165131858963761
+asked_meaning__temperature_0.5_sampling__1403,asked_meaning,question,"""What do you mean?"" asked",temperature_0.5_sampling,1403,,40,max_new_tokens,-46.99715705046865,-1.1749289262617162
+asked_meaning__temperature_0.5_sampling__1404,asked_meaning,question,"""What do you mean?"" asked",temperature_0.5_sampling,1404,,40,max_new_tokens,-58.601085312676844,-1.465027132816921
+asked_meaning__temperature_0.5_sampling__1405,asked_meaning,question,"""What do you mean?"" asked",temperature_0.5_sampling,1405,,40,max_new_tokens,-69.09723512880312,-1.727430878220078
+asked_meaning__temperature_1.5_sampling__1403,asked_meaning,question,"""What do you mean?"" asked",temperature_1.5_sampling,1403,,40,max_new_tokens,-144.08171017702782,-3.602042754425695
+asked_meaning__temperature_1.5_sampling__1404,asked_meaning,question,"""What do you mean?"" asked",temperature_1.5_sampling,1404,,40,max_new_tokens,-127.15311025248758,-3.1788277563121894
+asked_meaning__temperature_1.5_sampling__1405,asked_meaning,question,"""What do you mean?"" asked",temperature_1.5_sampling,1405,,40,max_new_tokens,-154.00090789345307,-3.850022697336327
+three_clues__greedy__1403,three_clues,list,The three clues were:,greedy,1403,,40,max_new_tokens,-37.129739828694845,-0.9282434957173711
+three_clues__second_best__1403,three_clues,list,The three clues were:,second_best,1403,,40,max_new_tokens,-104.22105151390342,-2.6055262878475856
+three_clues__multinomial_T1.0__1403,three_clues,list,The three clues were:,multinomial_T1.0,1403,,40,max_new_tokens,-84.81056124922839,-2.1202640312307097
+three_clues__multinomial_T1.0__1404,three_clues,list,The three clues were:,multinomial_T1.0,1404,,40,max_new_tokens,-82.4878567918758,-2.062196419796895
+three_clues__multinomial_T1.0__1405,three_clues,list,The three clues were:,multinomial_T1.0,1405,,40,max_new_tokens,-100.12042968997444,-2.5030107422493613
+three_clues__top_k_5_T1.0__1403,three_clues,list,The three clues were:,top_k_5_T1.0,1403,,40,max_new_tokens,-69.82185820010804,-1.745546455002701
+three_clues__top_k_5_T1.0__1404,three_clues,list,The three clues were:,top_k_5_T1.0,1404,,40,max_new_tokens,-66.6268369275512,-1.6656709231887799
+three_clues__top_k_5_T1.0__1405,three_clues,list,The three clues were:,top_k_5_T1.0,1405,,40,max_new_tokens,-73.62179921832596,-1.840544980458149
+three_clues__top_k_20_T1.0__1403,three_clues,list,The three clues were:,top_k_20_T1.0,1403,,40,max_new_tokens,-80.76712962522048,-2.019178240630512
+three_clues__top_k_20_T1.0__1404,three_clues,list,The three clues were:,top_k_20_T1.0,1404,,40,max_new_tokens,-90.10278320745162,-2.2525695801862904
+three_clues__top_k_20_T1.0__1405,three_clues,list,The three clues were:,top_k_20_T1.0,1405,,40,max_new_tokens,-93.9020892568053,-2.3475522314201323
+three_clues__top_p_0.80_T1.0__1403,three_clues,list,The three clues were:,top_p_0.80_T1.0,1403,,40,max_new_tokens,-65.34870124194111,-1.633717531048528
+three_clues__top_p_0.80_T1.0__1404,three_clues,list,The three clues were:,top_p_0.80_T1.0,1404,,40,max_new_tokens,-71.79842485292437,-1.7949606213231093
+three_clues__top_p_0.80_T1.0__1405,three_clues,list,The three clues were:,top_p_0.80_T1.0,1405,,40,max_new_tokens,-68.84097384710627,-1.7210243461776566
+three_clues__top_p_0.95_T1.0__1403,three_clues,list,The three clues were:,top_p_0.95_T1.0,1403,,40,max_new_tokens,-88.02048695711683,-2.2005121739279208
+three_clues__top_p_0.95_T1.0__1404,three_clues,list,The three clues were:,top_p_0.95_T1.0,1404,,40,max_new_tokens,-84.72879757550724,-2.1182199393876813
+three_clues__top_p_0.95_T1.0__1405,three_clues,list,The three clues were:,top_p_0.95_T1.0,1405,,40,max_new_tokens,-76.69345990855972,-1.9173364977139928
+three_clues__temperature_0.5_sampling__1403,three_clues,list,The three clues were:,temperature_0.5_sampling,1403,,40,max_new_tokens,-50.43526965016393,-1.2608817412540982
+three_clues__temperature_0.5_sampling__1404,three_clues,list,The three clues were:,temperature_0.5_sampling,1404,,40,max_new_tokens,-57.84624851819605,-1.4461562129549013
+three_clues__temperature_0.5_sampling__1405,three_clues,list,The three clues were:,temperature_0.5_sampling,1405,,40,max_new_tokens,-41.922722463329904,-1.0480680615832476
+three_clues__temperature_1.5_sampling__1403,three_clues,list,The three clues were:,temperature_1.5_sampling,1403,,40,max_new_tokens,-136.2989074276596,-3.40747268569149
+three_clues__temperature_1.5_sampling__1404,three_clues,list,The three clues were:,temperature_1.5_sampling,1404,,40,max_new_tokens,-147.1517518855891,-3.6787937971397278
+three_clues__temperature_1.5_sampling__1405,three_clues,list,The three clues were:,temperature_1.5_sampling,1405,,40,max_new_tokens,-150.4984804926047,-3.7624620123151176
+mystery_began__greedy__1403,mystery_began,story,The mystery began when,greedy,1403,,40,max_new_tokens,-35.66994529816846,-0.8917486324542114
+mystery_began__second_best__1403,mystery_began,story,The mystery began when,second_best,1403,,40,max_new_tokens,-83.41942638198728,-2.085485659549682
+mystery_began__multinomial_T1.0__1403,mystery_began,story,The mystery began when,multinomial_T1.0,1403,,40,max_new_tokens,-102.1961769997131,-2.5549044249928277
+mystery_began__multinomial_T1.0__1404,mystery_began,story,The mystery began when,multinomial_T1.0,1404,,40,max_new_tokens,-82.2917089893746,-2.057292724734365
+mystery_began__multinomial_T1.0__1405,mystery_began,story,The mystery began when,multinomial_T1.0,1405,,40,max_new_tokens,-89.01441311417949,-2.2253603278544873
+mystery_began__top_k_5_T1.0__1403,mystery_began,story,The mystery began when,top_k_5_T1.0,1403,,40,max_new_tokens,-69.48614799344791,-1.7371536998361978
+mystery_began__top_k_5_T1.0__1404,mystery_began,story,The mystery began when,top_k_5_T1.0,1404,,40,max_new_tokens,-70.40081870103668,-1.760020467525917
+mystery_began__top_k_5_T1.0__1405,mystery_began,story,The mystery began when,top_k_5_T1.0,1405,,40,max_new_tokens,-73.76401001429949,-1.8441002503574873
+mystery_began__top_k_20_T1.0__1403,mystery_began,story,The mystery began when,top_k_20_T1.0,1403,,40,max_new_tokens,-99.56131913267141,-2.4890329783167853
+mystery_began__top_k_20_T1.0__1404,mystery_began,story,The mystery began when,top_k_20_T1.0,1404,,40,max_new_tokens,-96.40950397749336,-2.410237599437334
+mystery_began__top_k_20_T1.0__1405,mystery_began,story,The mystery began when,top_k_20_T1.0,1405,,40,max_new_tokens,-90.9408541817207,-2.2735213545430173
+mystery_began__top_p_0.80_T1.0__1403,mystery_began,story,The mystery began when,top_p_0.80_T1.0,1403,,40,max_new_tokens,-72.02231430734064,-1.800557857683516
+mystery_began__top_p_0.80_T1.0__1404,mystery_began,story,The mystery began when,top_p_0.80_T1.0,1404,,40,max_new_tokens,-63.41526968530292,-1.5853817421325729
+mystery_began__top_p_0.80_T1.0__1405,mystery_began,story,The mystery began when,top_p_0.80_T1.0,1405,,40,max_new_tokens,-79.25001843085631,-1.9812504607714079
+mystery_began__top_p_0.95_T1.0__1403,mystery_began,story,The mystery began when,top_p_0.95_T1.0,1403,,40,max_new_tokens,-89.82311676590129,-2.2455779191475322
+mystery_began__top_p_0.95_T1.0__1404,mystery_began,story,The mystery began when,top_p_0.95_T1.0,1404,,40,max_new_tokens,-93.29307577176101,-2.332326894294025
+mystery_began__top_p_0.95_T1.0__1405,mystery_began,story,The mystery began when,top_p_0.95_T1.0,1405,,40,max_new_tokens,-85.22347861662966,-2.1305869654157417
+mystery_began__temperature_0.5_sampling__1403,mystery_began,story,The mystery began when,temperature_0.5_sampling,1403,,40,max_new_tokens,-45.02715546675004,-1.125678886668751
+mystery_began__temperature_0.5_sampling__1404,mystery_began,story,The mystery began when,temperature_0.5_sampling,1404,,40,max_new_tokens,-57.10256145671131,-1.4275640364177826
+mystery_began__temperature_0.5_sampling__1405,mystery_began,story,The mystery began when,temperature_0.5_sampling,1405,,40,max_new_tokens,-56.24792774450116,-1.406198193612529
+mystery_began__temperature_1.5_sampling__1403,mystery_began,story,The mystery began when,temperature_1.5_sampling,1403,,40,max_new_tokens,-164.57551457040017,-4.114387864260005
+mystery_began__temperature_1.5_sampling__1404,mystery_began,story,The mystery began when,temperature_1.5_sampling,1404,,40,max_new_tokens,-129.91381334934647,-3.247845333733662
+mystery_began__temperature_1.5_sampling__1405,mystery_began,story,The mystery began when,temperature_1.5_sampling,1405,,40,max_new_tokens,-155.95768351450153,-3.898942087862538

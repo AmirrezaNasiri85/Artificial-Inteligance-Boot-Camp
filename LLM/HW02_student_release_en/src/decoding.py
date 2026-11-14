@@ -42,7 +42,6 @@ def _result(probs, token_id, kept_ids, strategy: str) -> SelectionResult:
         strategy=strategy,
     )
 
-
 def _sample(probs, kept_ids, generator, strategy: str) -> SelectionResult:
     weights = probs[kept_ids] / probs[kept_ids].sum()  # renormalize
     pick = torch.multinomial(weights, 1, generator=generator)
@@ -73,7 +72,6 @@ def select_second_best(logits: torch.Tensor, temperature: float = 1.0) -> Select
 def sample_multinomial(logits: torch.Tensor, generator: torch.Generator, temperature: float = 1.0) -> SelectionResult:
     probs = _probs(logits, temperature)
     return _sample(probs, torch.arange(probs.numel()), generator, "multinomial")
-
 
 def sample_top_k(logits: torch.Tensor, k: int, generator: torch.Generator, temperature: float = 1.0) -> SelectionResult:
     if isinstance(k, bool) or not isinstance(k, int):
