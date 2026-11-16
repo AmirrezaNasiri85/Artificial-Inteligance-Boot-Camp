@@ -1,0 +1,11 @@
+{
+  "python_version": "3.15.2",
+  "torch_version": "2.15.0+cpu",
+  "device": "cpu",
+  "cuda_available": false,
+  "parameter_count": 644736,
+  "checkpoint_sha256": "7151108ca27ebfed3077aed89b4d093696bf09a715152fce99d3bf64167fea32",
+  "context_length": 128,
+  "vocabulary_size": 260,
+  "seed": 1403
+}
